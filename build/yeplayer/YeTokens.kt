@@ -58,7 +58,7 @@ object YeTokens {
     }
     object Radius {
         val pill = 999.dp
-        val r0 = 8.dp
+        val r0 = 12.dp
         val r1 = 12.dp
         val r2 = 20.dp
         val r3 = 28.dp
@@ -84,12 +84,21 @@ object YeTokens {
         val section = 24.dp
     }
     object Type {
-        val titleSize = 24.sp
-        val titleLine = 32.sp
-        const val titleWeight = 700
+        val h1Size = 24.sp
+        val h1Line = 32.sp
+        const val h1Weight = 700
+        val h2Size = 16.sp
+        val h2Line = 24.sp
+        const val h2Weight = 600
         val bodySize = 16.sp
         val bodyLine = 24.sp
         const val bodyWeight = 400
+        val mutedSize = 14.sp
+        val mutedLine = 20.sp
+        const val mutedWeight = 400
+        val titleSize = 24.sp
+        val titleLine = 32.sp
+        const val titleWeight = 700
         val captionSize = 14.sp
         val captionLine = 20.sp
         const val captionWeight = 400

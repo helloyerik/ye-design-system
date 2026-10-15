@@ -1,8 +1,3 @@
 {
-  "$description": "yephotos deviations kept for zero visual regression at migration (2026-10-15). Converge to base canon in a separate, owner-approved pass.",
-  "type": {
-    "title":   { "size": { "$value": "22px" }, "line": { "$value": "27.5px" }, "weight": { "$value": 600 } },
-    "body":    { "size": { "$value": "15px" }, "line": { "$value": "21.75px" } },
-    "caption": { "size": { "$value": "13px" } }
-  }
+  "$description": "yephotos — no type deviations. Converged to base canon (body 16 / muted 14 / h1 / h2) on design-review 2026-10-15."
 }

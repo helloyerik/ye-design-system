@@ -1,7 +1,11 @@
 {
-  "type": { "$description": "Exactly three text styles. Canon from shared-design-system.md.",
-    "title":   { "size": { "$value": "24px", "$type": "dimension" }, "line": { "$value": "32px", "$type": "dimension" }, "weight": { "$value": 700, "$type": "fontWeight" } },
+  "type": {
+    "$description": "Exactly four text styles (locked 2026-10-15): (1) body 16 (2) muted/caption 14 gray (3) h1 page title (4) h2 section. Aliases title=h1 and caption=muted kept for one release so existing var(--ye-type-title-*) / caption-* keep working.",
+    "h1":      { "size": { "$value": "24px", "$type": "dimension" }, "line": { "$value": "32px", "$type": "dimension" }, "weight": { "$value": 700, "$type": "fontWeight" } },
+    "h2":      { "size": { "$value": "16px", "$type": "dimension" }, "line": { "$value": "24px", "$type": "dimension" }, "weight": { "$value": 600, "$type": "fontWeight" } },
     "body":    { "size": { "$value": "16px", "$type": "dimension" }, "line": { "$value": "24px", "$type": "dimension" }, "weight": { "$value": 400, "$type": "fontWeight" } },
-    "caption": { "size": { "$value": "14px", "$type": "dimension" }, "line": { "$value": "20px", "$type": "dimension" }, "weight": { "$value": 400, "$type": "fontWeight" } }
+    "muted":   { "size": { "$value": "14px", "$type": "dimension" }, "line": { "$value": "20px", "$type": "dimension" }, "weight": { "$value": 400, "$type": "fontWeight" } },
+    "title":   { "size": { "$value": "24px", "$type": "dimension" }, "line": { "$value": "32px", "$type": "dimension" }, "weight": { "$value": 700, "$type": "fontWeight" }, "$description": "Deprecated alias of h1" },
+    "caption": { "size": { "$value": "14px", "$type": "dimension" }, "line": { "$value": "20px", "$type": "dimension" }, "weight": { "$value": 400, "$type": "fontWeight" }, "$description": "Deprecated alias of muted" }
   }
 }

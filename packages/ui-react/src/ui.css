@@ -1,14 +1,15 @@
 /* ye-design-system primitives. Requires a tokens.css from build/<app>/ loaded first.
    Canon: hit >= 48 (--ye-size-touch), primary 56; pill radius ONLY on controls; surfaces r1/r2/r3; no shadows;
-   at rest a control is filled OR outlined, never both; 3 text styles; monochrome.
+   at rest a control is filled OR outlined, never both; 4 text styles (h1/h2/body/muted); monochrome.
    App layout hooks (set on :root by the app): --ye-inset-bottom (safe area / tab bar), --ye-toast-bottom.
    Extracted 1:1 from yephotos app.css (2026-10-15) so the migration is pixel-identical. */
-.ye-text-title { font-size: var(--ye-type-title-size); line-height: var(--ye-type-title-line); font-weight: var(--ye-type-title-weight); margin: 0; }
+.ye-text-h1, .ye-text-title { font-size: var(--ye-type-h1-size); line-height: var(--ye-type-h1-line); font-weight: var(--ye-type-h1-weight); margin: 0; }
+.ye-text-h2 { font-size: var(--ye-type-h2-size); line-height: var(--ye-type-h2-line); font-weight: var(--ye-type-h2-weight); margin: 0; }
 .ye-text-body { font-size: var(--ye-type-body-size); line-height: var(--ye-type-body-line); font-weight: var(--ye-type-body-weight); margin: 0; }
-.ye-text-caption { font-size: var(--ye-type-caption-size); line-height: var(--ye-type-caption-line); color: var(--ye-dim); margin: 0; }
-.ye-muted { color: var(--ye-dim); font-size: var(--ye-type-caption-size); margin: 0; }
-.ye-error { color: var(--ye-err); font-size: var(--ye-type-caption-size); margin: 0; }
-.ye-tab { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-width: 64px; min-height: var(--ye-size-primary); border-radius: var(--ye-radius-r2); color: var(--ye-dim); font-size: var(--ye-type-caption-size); transition: color .2s var(--ye-ease-emphasized), background-color .2s var(--ye-ease-emphasized); }
+.ye-text-muted, .ye-text-caption { font-size: var(--ye-type-muted-size); line-height: var(--ye-type-muted-line); color: var(--ye-dim); margin: 0; }
+.ye-muted { color: var(--ye-dim); font-size: var(--ye-type-muted-size); margin: 0; }
+.ye-error { color: var(--ye-err); font-size: var(--ye-type-muted-size); margin: 0; }
+.ye-tab { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-width: 64px; min-height: var(--ye-size-primary); width: fit-content; max-width: 100%; border-radius: var(--ye-radius-pill); color: var(--ye-dim); font-size: var(--ye-type-muted-size); transition: color .2s var(--ye-ease-emphasized), background-color .2s var(--ye-ease-emphasized); }
 .ye-tab.is-active { color: var(--ye-fg); }
 .ye-tab:active { background: var(--ye-tone); }
 .ye-topbar { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 8px; min-height: 64px; padding: 8px 12px 8px 16px; background: var(--ye-bg); }
@@ -34,14 +35,15 @@
 .ye-card-cover { aspect-ratio: 1; border-radius: var(--ye-radius-r2); background: var(--ye-tone); overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .ye-card-cover img { width: 100%; height: 100%; object-fit: cover; }
 .ye-card-title { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ye-textbtn { min-height: var(--ye-size-touch); padding: 0 4px; color: var(--ye-dim); font-size: var(--ye-type-caption-size); }
+.ye-textbtn { min-height: var(--ye-size-touch); padding: 0 4px; color: var(--ye-dim); font-size: var(--ye-type-muted-size); }
 .ye-textbtn[aria-current] { color: var(--ye-fg); }
 .ye-empty { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 64px 24px; color: var(--ye-dim); }
 .ye-empty h2 { color: var(--ye-fg); }
 .ye-empty .ye-pill { margin-top: 8px; }
 .ye-loading { display: flex; justify-content: center; padding: 64px; }
-.ye-loading span { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--ye-line); border-top-color: var(--ye-fg); animation: ye-spin .8s linear infinite; }
-@keyframes ye-spin { to { transform: rotate(1turn); } }
+.ye-loading span { width: 48px; height: 12px; border-radius: var(--ye-radius-pill); background: var(--ye-tone2); animation: ye-pulse 1s var(--ye-ease-emphasized) infinite alternate; }
+@keyframes ye-pulse { from { opacity: .4; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .ye-loading span { animation: none; opacity: .7; } }
 .ye-chips { display: flex; gap: 8px; overflow-x: auto; }
 .ye-chip { min-height: var(--ye-size-chip); padding: 0 16px; border-radius: var(--ye-radius-pill); border: 1px solid var(--ye-line); white-space: nowrap; position: relative; }
 .ye-chip::after { content: ''; position: absolute; inset: -4px 0; }

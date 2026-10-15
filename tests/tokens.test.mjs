@@ -13,9 +13,16 @@ test('every app build has css, ts, kotlin', () => {
 test('two dark blocks are identical, light differs, page is black in dark', () => {
   for (const a of apps) { const [light, dark1, dark2] = blocks(css(a)); assert.equal(dark1, dark2); assert.notEqual(light, dark1); assert.match(dark1, /--ye-bg: #000000;/) }
 })
-test('pill radius exists and only three text styles', () => {
+test('pill radius exists; four locked type styles (+ title/caption aliases)', () => {
   const s = css('base'); assert.match(s, /--ye-radius-pill: 999px/)
-  const styles = new Set([...s.matchAll(/--ye-type-(\w+)-size/g)].map((m) => m[1])); assert.deepEqual([...styles].sort(), ['body', 'caption', 'title'])
+  const styles = new Set([...s.matchAll(/--ye-type-(\w+)-size/g)].map((m) => m[1]))
+  for (const k of ['h1', 'h2', 'body', 'muted']) assert.ok(styles.has(k), k)
+  // aliases kept one release
+  assert.ok(styles.has('title') && styles.has('caption'))
+  assert.match(s, /--ye-type-body-size: 16px/)
+  assert.match(s, /--ye-type-muted-size: 14px/)
+  assert.match(s, /--ye-radius-r0: 12px/) // was 8; now alias of r1
+  assert.match(s, /--ye-radius-r1: 12px/)
 })
 test('touch target >= 48', () => assert.match(css('base'), /--ye-size-touch: 48px/))
 test('spring conversions round-trip and match legacy web springs', () => {

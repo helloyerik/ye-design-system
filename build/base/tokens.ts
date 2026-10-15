@@ -126,7 +126,7 @@ export const tokens = {
   },
   "radius": {
     "pill": 999,
-    "r0": 8,
+    "r0": 12,
     "r1": 12,
     "r2": 20,
     "r3": 28
@@ -152,15 +152,30 @@ export const tokens = {
     "family": "Figtree, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
   },
   "type": {
-    "title": {
+    "h1": {
       "size": 24,
       "line": 32,
       "weight": 700
+    },
+    "h2": {
+      "size": 16,
+      "line": 24,
+      "weight": 600
     },
     "body": {
       "size": 16,
       "line": 24,
       "weight": 400
+    },
+    "muted": {
+      "size": 14,
+      "line": 20,
+      "weight": 400
+    },
+    "title": {
+      "size": 24,
+      "line": 32,
+      "weight": 700
     },
     "caption": {
       "size": 14,
