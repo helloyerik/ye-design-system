@@ -28,3 +28,17 @@ Web keeps exact Apple-style `{duration, bounce}` values so yephotos/yeplayer sta
 
 - yephotos type 22/15/13 (canon 24/16/14): `tokens/apps/yephotos.json`.
 - yephotos keeps app-level vars `--yp-tab-h`, `--yp-st/sb`, `--yp-tile-bg`, `--yp-scrub-bg` and the Astryx theme (`--yp-ease-*` via `motionVars('--yp')`).
+
+## Content-edge alignment (2026-10-15)
+
+Owner rule, locked:
+
+> Align elements to visible content edges, never to an invisible bounding box or empty padding zone. Active/hover pills hug icon+label (only enough padding for the 44–48px hit target). Columns and amounts align to the content, not a floating max-width gutter.
+
+Also keep: at rest fill OR outline never both; only controls are pills 999px; surfaces 12/20/28; Figtree + Tabler; English UI.
+
+Do not set sidebar nav items to `width: 100%` / stretch them in a column flex rail. Use `width: fit-content` (or `align-items: flex-start` on the rail) so the active pill hugs the label.
+
+## Type scale (2026-10-15)
+
+**Type scale (locked):** only (1) body 16px, (2) secondary/muted caption 14px gray, (3) h1 page title, (4) h2 section titles. No 12px captions, no 20/22/24 midtitles, no third body size. A page’s primary money figure (Overview net worth, entry amount) may use h1 scale — that is not a fifth general style.

@@ -21,3 +21,6 @@ npm test                   # tokens + i18n + primitives canon checks
 npm run check              # tokens are up to date + tests
 ```
 Agents: read `AGENTS.md` first.
+
+**Content-edge alignment:** align to visible content edges, never to an invisible bounding box or empty padding zone. Active/hover pills hug icon+label (hit-target padding only). Columns and amounts align to the content, not a floating max-width gutter. See `docs/DECISIONS.md`.
+
