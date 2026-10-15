@@ -1,0 +1,59 @@
+/* ye-design-system primitives. Requires a tokens.css from build/<app>/ loaded first.
+   Canon: hit >= 48 (--ye-size-touch), primary 56; pill radius ONLY on controls; surfaces r1/r2/r3; no shadows;
+   at rest a control is filled OR outlined, never both; 3 text styles; monochrome.
+   App layout hooks (set on :root by the app): --ye-inset-bottom (safe area / tab bar), --ye-toast-bottom.
+   Extracted 1:1 from yephotos app.css (2026-10-15) so the migration is pixel-identical. */
+.ye-text-title { font-size: var(--ye-type-title-size); line-height: var(--ye-type-title-line); font-weight: var(--ye-type-title-weight); margin: 0; }
+.ye-text-body { font-size: var(--ye-type-body-size); line-height: var(--ye-type-body-line); font-weight: var(--ye-type-body-weight); margin: 0; }
+.ye-text-caption { font-size: var(--ye-type-caption-size); line-height: var(--ye-type-caption-line); color: var(--ye-dim); margin: 0; }
+.ye-muted { color: var(--ye-dim); font-size: var(--ye-type-caption-size); margin: 0; }
+.ye-error { color: var(--ye-err); font-size: var(--ye-type-caption-size); margin: 0; }
+.ye-tab { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-width: 64px; min-height: var(--ye-size-primary); border-radius: var(--ye-radius-r2); color: var(--ye-dim); font-size: var(--ye-type-caption-size); transition: color .2s var(--ye-ease-emphasized), background-color .2s var(--ye-ease-emphasized); }
+.ye-tab.is-active { color: var(--ye-fg); }
+.ye-tab:active { background: var(--ye-tone); }
+.ye-topbar { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 8px; min-height: 64px; padding: 8px 12px 8px 16px; background: var(--ye-bg); }
+.ye-topbar-title { flex: 1; min-width: 0; }
+.ye-topbar-title h1 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ye-topbar-actions { display: flex; gap: 4px; align-items: center; }
+.ye-iconbtn { display: inline-flex; align-items: center; justify-content: center; width: var(--ye-size-touch); height: var(--ye-size-touch); flex: none; border-radius: 50%; color: var(--ye-fg); transition: background-color .15s var(--ye-ease-emphasized); }
+.ye-iconbtn:hover { background: var(--ye-tone); }
+.ye-iconbtn:active, .ye-iconbtn.is-active { background: var(--ye-tone2); }
+.ye-pill { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--ye-size-touch); padding: 0 20px; border-radius: var(--ye-radius-pill); font-weight: 600; white-space: nowrap; transition: background-color .15s var(--ye-ease-emphasized), transform .1s var(--ye-ease-emphasized); }
+.ye-pill:active:not(:disabled) { transform: scale(.97); }
+.ye-pill-primary { background: var(--ye-fg); color: var(--ye-on-fg); }
+.ye-pill-secondary { background: var(--ye-tone2); }
+.ye-pill-ghost { background: transparent; }
+.ye-pill-ghost:hover, .ye-pill-ghost.is-on { background: var(--ye-tone); }
+.ye-pill-danger { background: var(--ye-danger); color: var(--ye-on-danger); }
+.ye-listitem { display: flex; align-items: center; gap: 16px; min-height: var(--ye-size-primary); padding: 4px 12px; border-radius: var(--ye-radius-r1); text-align: left; }
+.ye-listitem-dense { min-height: var(--ye-size-touch); }
+.ye-listitem-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ye-listitem-thumb { width: 40px; height: 40px; border-radius: var(--ye-radius-r1); object-fit: cover; }
+.ye-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+.ye-card { display: flex; flex-direction: column; gap: 4px; text-align: left; min-height: var(--ye-size-touch); }
+.ye-card-cover { aspect-ratio: 1; border-radius: var(--ye-radius-r2); background: var(--ye-tone); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.ye-card-cover img { width: 100%; height: 100%; object-fit: cover; }
+.ye-card-title { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ye-textbtn { min-height: var(--ye-size-touch); padding: 0 4px; color: var(--ye-dim); font-size: var(--ye-type-caption-size); }
+.ye-textbtn[aria-current] { color: var(--ye-fg); }
+.ye-empty { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 64px 24px; color: var(--ye-dim); }
+.ye-empty h2 { color: var(--ye-fg); }
+.ye-empty .ye-pill { margin-top: 8px; }
+.ye-loading { display: flex; justify-content: center; padding: 64px; }
+.ye-loading span { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--ye-line); border-top-color: var(--ye-fg); animation: ye-spin .8s linear infinite; }
+@keyframes ye-spin { to { transform: rotate(1turn); } }
+.ye-chips { display: flex; gap: 8px; overflow-x: auto; }
+.ye-chip { min-height: var(--ye-size-chip); padding: 0 16px; border-radius: var(--ye-radius-pill); border: 1px solid var(--ye-line); white-space: nowrap; position: relative; }
+.ye-chip::after { content: ''; position: absolute; inset: -4px 0; }
+.ye-chip.is-on { background: var(--ye-fg); color: var(--ye-on-fg); border-color: var(--ye-fg); }
+.ye-scrim { position: fixed; inset: 0; z-index: 50; background: var(--ye-scrim); display: flex; align-items: flex-end; justify-content: center; animation: ye-fade .2s var(--ye-ease-emphasized); }
+.ye-sheet { width: 100%; max-height: 85vh; overflow: auto; background: var(--ye-surface); border-radius: var(--ye-radius-r3) var(--ye-radius-r3) 0 0; padding: 24px 20px calc(20px + var(--ye-inset-bottom, env(safe-area-inset-bottom, 0px))); display: flex; flex-direction: column; gap: 16px; animation: ye-up .3s var(--ye-ease-emphasized); }
+.ye-sheet-actions { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+@media (min-width: 600px) { .ye-scrim { align-items: center; } .ye-sheet { max-width: 440px; border-radius: var(--ye-radius-r3); animation-name: ye-pop; } }
+@keyframes ye-fade { from { opacity: 0; } }
+@keyframes ye-up { from { transform: translateY(40%); opacity: 0; } }
+@keyframes ye-pop { from { transform: scale(.96); opacity: 0; } }
+.ye-toasts { position: fixed; left: 50%; transform: translateX(-50%); bottom: var(--ye-toast-bottom, calc(var(--ye-inset-bottom, env(safe-area-inset-bottom, 0px)) + 12px)); z-index: 60; display: flex; flex-direction: column; gap: 8px; width: min(92vw, 440px); pointer-events: none; }
+.ye-toast { display: flex; align-items: center; gap: 12px; min-height: var(--ye-size-touch); padding: 0 8px 0 20px; border-radius: var(--ye-radius-r2); background: var(--ye-toast-bg); color: var(--ye-toast-fg); pointer-events: auto; animation: ye-up .25s var(--ye-ease-emphasized); }
+.ye-toast span { flex: 1; }
+.ye-toast-action { min-height: var(--ye-size-touch); padding: 0 12px; font-weight: 600; border-radius: var(--ye-radius-pill); }

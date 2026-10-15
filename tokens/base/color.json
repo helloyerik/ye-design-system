@@ -1,0 +1,22 @@
+{
+  "color": {
+    "$type": "color",
+    "$description": "Monochrome, flat. Semantic colour only for danger/error. Black page in dark (default for viewer).",
+    "light": {
+      "bg": { "$value": "#ffffff" }, "fg": { "$value": "#000000" }, "on-fg": { "$value": "#ffffff" },
+      "dim": { "$value": "rgba(0,0,0,.6)" }, "line": { "$value": "rgba(0,0,0,.14)" },
+      "tone": { "$value": "rgba(0,0,0,.05)" }, "tone2": { "$value": "rgba(0,0,0,.09)" },
+      "surface": { "$value": "#f2f2f2" }, "toast-bg": { "$value": "#1a1a1a" }, "toast-fg": { "$value": "#ffffff" },
+      "danger": { "$value": "#c4221a" }, "on-danger": { "$value": "#ffffff" }, "err": { "$value": "#b3261e" },
+      "scrim": { "$value": "rgba(0,0,0,.4)" }
+    },
+    "dark": {
+      "bg": { "$value": "#000000" }, "fg": { "$value": "#ffffff" }, "on-fg": { "$value": "#000000" },
+      "dim": { "$value": "rgba(255,255,255,.6)" }, "line": { "$value": "rgba(255,255,255,.12)" },
+      "tone": { "$value": "rgba(255,255,255,.08)" }, "tone2": { "$value": "rgba(255,255,255,.14)" },
+      "surface": { "$value": "#161616" }, "toast-bg": { "$value": "#ececec" }, "toast-fg": { "$value": "#000000" },
+      "danger": { "$value": "#ff5449" }, "on-danger": { "$value": "#000000" }, "err": { "$value": "#ff8a80" },
+      "scrim": { "$value": "rgba(0,0,0,.6)" }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@yeds/ui-react",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "ye-design-system React primitives (source package; consumed via git submodule + Vite/TS source import).",
+  "exports": {
+    ".": "./src/index.ts",
+    "./motion": "./src/motion.ts",
+    "./i18n": "./src/i18n.ts",
+    "./ui.css": "./src/ui.css"
+  },
+  "peerDependencies": {
+    "react": ">=19",
+    "@tabler/icons-react": ">=3"
+  }
+}

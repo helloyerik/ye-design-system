@@ -1,0 +1,13 @@
+{
+  "radius": { "$type": "dimension",
+    "$description": "pill ONLY for interactive controls; surfaces use r1..r3",
+    "pill": { "$value": "999px" }, "r0": { "$value": "8px" }, "r1": { "$value": "12px" }, "r2": { "$value": "20px" }, "r3": { "$value": "28px" } },
+  "size": { "$type": "dimension",
+    "touch": { "$value": "48px", "$description": "minimum hit target" },
+    "primary": { "$value": "56px", "$description": "primary control / list row" },
+    "icon": { "$value": "24px" }, "hairline": { "$value": "1px" }, "chip": { "$value": "40px", "$description": "visual height; hit area stays 48" } },
+  "space": { "$type": "dimension",
+    "unit": { "$value": "4px" }, "grid": { "$value": "8px" }, "gutter": { "$value": "16px" }, "margin": { "$value": "20px" }, "section": { "$value": "24px" } },
+  "icon": { "stroke": { "$value": 2, "$type": "number", "$description": "Tabler stroke width, everywhere" } },
+  "font": { "family": { "$value": "Figtree, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif", "$type": "fontFamily", "$description": "Figtree everywhere (owner decision 2026-10-15)" } }
+}

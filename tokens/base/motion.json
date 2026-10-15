@@ -1,0 +1,29 @@
+{
+  "ease": { "$type": "cubicBezier",
+    "out":        { "$value": [0.23, 1, 0.32, 1], "$description": "enter/exit" },
+    "in-out":     { "$value": [0.77, 0, 0.175, 1], "$description": "moving something already on screen" },
+    "drawer":     { "$value": [0.32, 0.72, 0, 1], "$description": "sheets/panels (iOS drawer)" },
+    "emphasized": { "$value": [0.2, 0, 0, 1], "$description": "M3 emphasized: gestures, player expand" }
+  },
+  "dur": { "$type": "duration", "$description": "UI motion <= 300ms except drawer; exit faster than enter",
+    "press": { "$value": "140ms" }, "hover": { "$value": "150ms" }, "swap": { "$value": "160ms" }, "tooltip": { "$value": "125ms" },
+    "popover": { "$value": "180ms" }, "popover-exit": { "$value": "120ms" }, "modal": { "$value": "240ms" }, "modal-exit": { "$value": "160ms" },
+    "drawer": { "$value": "320ms" }, "drawer-exit": { "$value": "220ms" }, "toast": { "$value": "240ms" },
+    "expand": { "$value": "300ms" }, "collapse": { "$value": "220ms" }, "page": { "$value": "260ms" }, "page-back": { "$value": "220ms" },
+    "alpha": { "$value": "120ms", "$description": "reduced-motion fade" }, "stagger": { "$value": "40ms" }
+  },
+  "spring": { "$description": "Unified spring roles. dampingRatio + stiffness (mass 1). Web derives duration/bounce. See docs/DECISIONS.md#springs",
+    "settle":   { "$value": { "dampingRatio": 0.9,  "stiffness": 600 },  "$description": "sheet/drag settle (yetube DECISIONS + yereader sheetSettle agree)" },
+    "swipe":    { "$value": { "dampingRatio": 0.85, "stiffness": 600 },  "$description": "list row spring-back" },
+    "press-down": { "$value": { "dampingRatio": 1, "stiffness": 1500 } },
+    "press-up": { "$value": { "dampingRatio": 0.65, "stiffness": 500 }, "$description": "yetube owner-locked; replaces yereader 0.6/500" },
+    "page":     { "$value": { "dampingRatio": 1,    "stiffness": 400 },  "$description": "reader page turn" },
+    "drag":     { "$value": { "duration": 0.45, "bounce": 0.15 },  "$description": "web drag release; = dampingRatio .85 / stiffness ~195" },
+    "pop":      { "$value": { "duration": 0.35, "bounce": 0.3 },  "$description": "like-heart pop; = dampingRatio .7 / stiffness ~322" }
+  },
+  "gesture": {
+    "press-scale": { "$value": 0.97, "$type": "number" }, "enter-scale": { "$value": 0.96, "$type": "number" },
+    "flick-px-per-ms": { "$value": 0.11, "$type": "number" }, "commit-fling-dp-per-s": { "$value": 1250, "$type": "number" },
+    "page-shift": { "$value": "20px", "$type": "dimension" }
+  }
+}

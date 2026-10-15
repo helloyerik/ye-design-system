@@ -1,0 +1,12 @@
+{
+  "name": "@yeds/root",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "tokens": "node tokens/build.mjs",
+    "test": "node --test tests/"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.4.0"
+  }
+}

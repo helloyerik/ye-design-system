@@ -1,0 +1,7 @@
+{
+  "type": { "$description": "Exactly three text styles. Canon from shared-design-system.md.",
+    "title":   { "size": { "$value": "24px", "$type": "dimension" }, "line": { "$value": "32px", "$type": "dimension" }, "weight": { "$value": 700, "$type": "fontWeight" } },
+    "body":    { "size": { "$value": "16px", "$type": "dimension" }, "line": { "$value": "24px", "$type": "dimension" }, "weight": { "$value": 400, "$type": "fontWeight" } },
+    "caption": { "size": { "$value": "14px", "$type": "dimension" }, "line": { "$value": "20px", "$type": "dimension" }, "weight": { "$value": 400, "$type": "fontWeight" } }
+  }
+}
