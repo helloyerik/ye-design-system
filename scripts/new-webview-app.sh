@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Generate an Android WebView wrapper from android/webview-template.
+# Usage: new-webview-app.sh <name> <applicationId> <out-dir> [default-server]
+#   new-webview-app.sh yenotes app.yenotes ../yenotes/android http://t470:8800
+set -euo pipefail
+name=${1:?name}; appid=${2:?applicationId}; out=${3:?out-dir}; server=${4:-}
+src="$(cd "$(dirname "$0")/.." && pwd)/android/webview-template"
+[[ -e $out ]] && { echo "refuse: $out exists"; exit 1; }
+[[ $appid =~ ^[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*)+$ ]] || { echo "bad applicationId"; exit 1; }
+mkdir -p "$out"; cp -r "$src"/. "$out"/; rm -f "$out/README.md"
+pkgdir="$out/app/src/main/java/$(echo "$appid" | tr . /)"; mkdir -p "$pkgdir"
+mv "$out/app/src/main/java/app/yetemplate/MainActivity.kt" "$pkgdir/"; rmdir "$out/app/src/main/java/app/yetemplate" 2>/dev/null || true
+grep -rlZ 'yetemplate' "$out" | xargs -0 sed -i -e "s/app\.yetemplate/$appid/g" -e "s/yetemplate/$name/g"
+[[ -n $server ]] && echo "yeServer=$server" >> "$out/gradle.properties"
+sed -i "s/PORT/${server##*:}/" "$out/app/src/main/assets/setup.html" 2>/dev/null || true
+echo "generated $out ($appid). Build: (cd $out && ./gradlew assembleRelease)"

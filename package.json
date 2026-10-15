@@ -4,9 +4,11 @@
   "type": "module",
   "scripts": {
     "tokens": "node tokens/build.mjs",
-    "test": "node --test tests/"
+    "test": "node --test tests/",
+    "check": "npm run tokens && git diff --exit-code build/ && npm test"
   },
   "devDependencies": {
+    "esbuild": "^0.28.2",
     "style-dictionary": "^4.4.0"
   }
 }
