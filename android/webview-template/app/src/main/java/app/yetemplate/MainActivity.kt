@@ -12,7 +12,9 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import android.webkit.*
-import android.window.OnBackInvokedDispatcher
+import androidx.activity.BackEventCompat
+import androidx.activity.ComponentActivity
+import androidx.activity.OnBackPressedCallback
 
 /**
  * WebView-обёртка yetemplate (по образцу yeplayer). Весь UI — с сервера пользователя (адрес в prefs "server").
@@ -20,7 +22,7 @@ import android.window.OnBackInvokedDispatcher
  * Инсеты системных баров → CSS --ye-inset-top/--ye-inset-bottom (контракт ye-design-system) (+ left/right); тема — системная (prefers-color-scheme в WebView,
  * иконки баров по uiMode); выбор файлов — системный пикер (multiple, image/video); Back → window.yeBack() → history → выход.
  */
-class MainActivity : Activity() {
+class MainActivity : ComponentActivity() {
     private lateinit var web: WebView
     private val prefs by lazy { getSharedPreferences("yetemplate", MODE_PRIVATE) }
     private var insetsJs = ""
@@ -33,7 +35,16 @@ class MainActivity : Activity() {
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (Build.VERSION.SDK_INT >= 33) onBackInvokedDispatcher.registerOnBackInvokedCallback(OnBackInvokedDispatcher.PRIORITY_DEFAULT) { goBack() }
+        // System Back on every API level (gesture, button, predictive back) via one OnBackPressedDispatcher callback.
+        // Page contract: window.yeBack() closes the top overlay (sheet/menu/full-screen player) or pops the route stack and
+        // returns true; window.yeBackProgress(p, edge) optionally animates the predictive gesture. Only "visible" overlays
+        // may count — closed ones that stay mounted must not swallow Back (yeplayer bug 2026-10-15).
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackStarted(e: BackEventCompat) = progress(0f, e.swipeEdge)
+            override fun handleOnBackProgressed(e: BackEventCompat) = progress(e.progress, e.swipeEdge)
+            override fun handleOnBackCancelled() { web.evaluateJavascript("window.yeBackProgress&&window.yeBackProgress(0,'cancel')", null) }
+            override fun handleOnBackPressed() = goBack()
+        })
         window.statusBarColor = Color.TRANSPARENT
         window.navigationBarColor = Color.TRANSPARENT
         if (Build.VERSION.SDK_INT >= 29) { window.isNavigationBarContrastEnforced = false; window.isStatusBarContrastEnforced = false }
@@ -84,14 +95,16 @@ class MainActivity : Activity() {
 
     override fun onConfigurationChanged(c: Configuration) { super.onConfigurationChanged(c); barIcons() }
 
+    private fun progress(p: Float, edge: Int) =
+        web.evaluateJavascript("window.yeBackProgress&&window.yeBackProgress($p,'${if (edge == BackEventCompat.EDGE_LEFT) "left" else "right"}')", null)
+
+    /** page (window.yeBack) → WebView history → leave the app on the root screen */
     fun goBack() {
         web.evaluateJavascript("(function(){try{return !!(window.yeBack&&window.yeBack())}catch(e){return false}})()") { r ->
             if (r != "true") { if (web.canGoBack()) web.goBack() else finish() }
         }
     }
 
-    @Deprecated("API < 33")
-    override fun onBackPressed() = goBack()
 
     inner class Setup {
         @JavascriptInterface fun current(): String = server ?: ""
