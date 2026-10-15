@@ -1,0 +1,138 @@
+{
+  "$description": "yeplayer (Astryx neutral theme) — palette measured from Grok iOS / ChatGPT neutral (yeplayer docs/contrast.md). Kept as-is at migration (2026-10-15) for zero visual regression; mapped onto Astryx tokens in yeplayer src/themes/yeplayer.ts.",
+  "color": {
+    "light": {
+      "fg": {
+        "$value": "#0d0d0d"
+      },
+      "on-fg": {
+        "$value": "#ffffff"
+      },
+      "dim": {
+        "$value": "#5d5d5d"
+      },
+      "disabled": {
+        "$value": "#808080"
+      },
+      "line": {
+        "$value": "#0000001a"
+      },
+      "line-strong": {
+        "$value": "#858585"
+      },
+      "tone": {
+        "$value": "#00000012"
+      },
+      "hover": {
+        "$value": "#0000000a"
+      },
+      "pressed": {
+        "$value": "#0000001a"
+      },
+      "surface": {
+        "$value": "#f4f4f4"
+      },
+      "popover": {
+        "$value": "#ffffff"
+      },
+      "selected": {
+        "$value": "#ececec"
+      },
+      "sidebar": {
+        "$value": "#f9f9f9"
+      },
+      "accent": {
+        "$value": "#0d0d0d",
+        "$description": "primary button fill"
+      }
+    },
+    "dark": {
+      "fg": {
+        "$value": "#f4f4f4"
+      },
+      "on-fg": {
+        "$value": "#0d0d0d"
+      },
+      "dim": {
+        "$value": "#ababab"
+      },
+      "disabled": {
+        "$value": "#8a8a8a"
+      },
+      "line": {
+        "$value": "#ffffff1a"
+      },
+      "line-strong": {
+        "$value": "#767676"
+      },
+      "tone": {
+        "$value": "#ffffff17"
+      },
+      "hover": {
+        "$value": "#ffffff0f"
+      },
+      "pressed": {
+        "$value": "#ffffff1a"
+      },
+      "surface": {
+        "$value": "#212121"
+      },
+      "popover": {
+        "$value": "#262626"
+      },
+      "selected": {
+        "$value": "#2c2c2c"
+      },
+      "sidebar": {
+        "$value": "#121212"
+      },
+      "accent": {
+        "$value": "#ffffff"
+      }
+    }
+  },
+  "size": {
+    "element": {
+      "$type": "dimension",
+      "$description": "Astryx --size-element-*; desktop vs touch (touch never < 48)",
+      "desktop": {
+        "sm": {
+          "$value": "36px"
+        },
+        "md": {
+          "$value": "44px"
+        },
+        "lg": {
+          "$value": "52px"
+        }
+      },
+      "touch": {
+        "sm": {
+          "$value": "48px"
+        },
+        "md": {
+          "$value": "48px"
+        },
+        "lg": {
+          "$value": "56px"
+        }
+      }
+    }
+  },
+  "type": {
+    "title-desktop": {
+      "size": {
+        "$value": "32px",
+        "$type": "dimension"
+      },
+      "line": {
+        "$value": "40px",
+        "$type": "dimension"
+      },
+      "weight": {
+        "$value": 700,
+        "$type": "fontWeight"
+      }
+    }
+  }
+}

@@ -66,7 +66,7 @@ StyleDictionary.registerFormat({
 })
 
 const argb = (s) => {
-  if (s.startsWith('#')) { const h = s.slice(1); return '0xFF' + h.toUpperCase() }
+  if (s.startsWith('#')) { const h = s.slice(1).toUpperCase(); return h.length === 8 ? '0x' + h.slice(6) + h.slice(0, 6) : '0xFF' + h }
   const [r, g, b, a = 1] = s.match(/rgba?\(([^)]+)\)/)[1].split(',').map(Number)
   const hx = (n) => Math.round(n).toString(16).padStart(2, '0').toUpperCase()
   return '0x' + hx(a * 255) + hx(r) + hx(g) + hx(b)
