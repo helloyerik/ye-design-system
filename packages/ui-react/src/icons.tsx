@@ -12,7 +12,7 @@ export const ICON_STROKE = tokens.icon.stroke
 
 export function createIcon<M extends Record<string, TablerLike>>(map: M) {
   function Icon({ name, size = ICON_SIZE, className }: { name: keyof M; size?: number; className?: string }) {
-    const C = map[name]
+    const C = map[name] as TablerLike
     return <C size={size} stroke={ICON_STROKE} aria-hidden className={className} />
   }
   return Icon
