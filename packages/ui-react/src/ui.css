@@ -87,3 +87,8 @@ select.ye-field { padding-right: calc(var(--ye-ctl-px) + 24px); background-image
 .ye-search { background: var(--ye-search-fill); border: 0; }
 .ye-search:focus, .ye-search:focus-visible, .ye-search:focus-within { outline: 2px solid var(--ye-field-line-focus); outline-offset: 0; }
 .ye-field::placeholder, .ye-search::placeholder { color: var(--ye-dim); }
+/* Search as a wrapper (icon + input): <form class="ye-search" role="search"><svg/><input/></form> */
+.ye-search:has(> input) { display: flex; align-items: center; gap: 8px; padding: 0 4px 0 var(--ye-ctl-px); }
+.ye-search > input { flex: 1; min-width: 0; min-height: var(--ye-ctl-h); font: inherit; color: inherit; background: none; border: 0; padding: 0; outline: none; }
+.ye-search > input::-webkit-search-cancel-button { display: none; }
+.ye-search:has(> input:focus-visible) { outline: 2px solid var(--ye-field-line-focus); }
