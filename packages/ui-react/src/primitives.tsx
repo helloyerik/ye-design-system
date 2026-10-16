@@ -5,7 +5,7 @@
  * Icons are passed as nodes (apps wrap these with their own createIcon map). Copy comes from the app (i18n).
  * Extracted from yephotos frontend/src/ui.tsx (2026-10-15); class names are `ye-*`, styles in ui.css.
  */
-import { useEffect, useRef, type ReactNode, type InputHTMLAttributes, type ButtonHTMLAttributes, type TextareaHTMLAttributes, type SelectHTMLAttributes } from 'react'
+import { useEffect, useRef, type CSSProperties, type ReactNode, type InputHTMLAttributes, type ButtonHTMLAttributes, type TextareaHTMLAttributes, type SelectHTMLAttributes } from 'react'
 
 type Press = { onPointerDown?: () => void; onPointerUp?: () => void }
 
@@ -119,3 +119,20 @@ export const TextArea = ({ className = '', ...p }: TextareaHTMLAttributes<HTMLTe
 export const Select = ({ className = '', children, ...p }: SelectHTMLAttributes<HTMLSelectElement>) => <select {...p} className={'ye-field' + (className ? ' ' + className : '')}>{children}</select>
 /** Search field: FILLED (--ye-search-fill, no border) — acts almost like a button. */
 export const Search = ({ className = '', type = 'search', ...p }: InputHTMLAttributes<HTMLInputElement>) => <input type={type} {...p} className={'ye-search' + (className ? ' ' + className : '')} />
+
+/** Segmented control: one choice from 2–4 options. role="group" with aria-pressed, or role="tablist" with aria-selected. */
+export function SegmentedControl<T extends string>({ value, options, onChange, label, role = 'group', className = '', style }: { value: T; options: { value: T; label: ReactNode }[]; onChange: (v: T) => void; label?: string; role?: 'group' | 'tablist'; className?: string; style?: CSSProperties }) {
+  return (
+    <div className={'ye-seg' + (className ? ' ' + className : '')} role={role} aria-label={label} style={style}>
+      {options.map((o) => <button key={o.value} type="button" role={role === 'tablist' ? 'tab' : undefined} className={o.value === value ? 'is-on' : ''} aria-pressed={role === 'group' ? o.value === value : undefined} aria-selected={role === 'tablist' ? o.value === value : undefined} onClick={() => onChange(o.value)}>{o.label}</button>)}
+    </div>
+  )
+}
+/** Bottom tab bar. Items: icon (+ optional label); the current one gets aria-current="page". */
+export function TabBar({ items, label, className = '' }: { items: { id: string; label: string; icon: ReactNode; current?: boolean; showLabel?: boolean; onClick: () => void }[]; label: string; className?: string }) {
+  return (
+    <nav className={'ye-tabbar' + (className ? ' ' + className : '')} aria-label={label}>
+      {items.map((i) => <button key={i.id} type="button" className="ye-tab" aria-label={i.label} aria-current={i.current ? 'page' : undefined} onClick={i.onClick}>{i.icon}{i.showLabel && <span>{i.label}</span>}</button>)}
+    </nav>
+  )
+}

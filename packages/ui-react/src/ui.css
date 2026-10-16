@@ -10,9 +10,9 @@
 .ye-text-muted, .ye-text-caption { font-size: var(--ye-type-muted-size); line-height: var(--ye-type-muted-line); color: var(--ye-dim); margin: 0; }
 .ye-muted { color: var(--ye-dim); font-size: var(--ye-type-muted-size); margin: 0; }
 .ye-error { color: var(--ye-err); font-size: var(--ye-type-muted-size); margin: 0; }
-.ye-tab { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-width: 64px; min-height: var(--ye-size-primary); width: fit-content; max-width: 100%; border-radius: var(--ye-radius-pill); color: var(--ye-dim); font-size: var(--ye-type-muted-size); transition: color .2s var(--ye-ease-emphasized), background-color .2s var(--ye-ease-emphasized); }
-.ye-tab.is-active { color: var(--ye-fg); }
-.ye-tab:active { background: var(--ye-tone); }
+.ye-tab { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-width: 64px; min-height: var(--ye-size-primary); width: fit-content; max-width: 100%; border-radius: var(--ye-radius-pill); color: var(--ye-tab-fg, var(--ye-dim)); font-size: var(--ye-type-muted-size); transition: color .2s var(--ye-ease-emphasized), background-color .2s var(--ye-ease-emphasized); }
+.ye-tab.is-active, .ye-tab[aria-current='page'] { color: var(--ye-tab-active-fg, var(--ye-fg)); }
+.ye-tab:active { background: var(--ye-tab-pressed, var(--ye-tone)); }
 .ye-topbar { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 8px; min-height: 64px; padding: 8px 12px 8px 16px; background: var(--ye-bg); }
 .ye-topbar-title { flex: 1; min-width: 0; }
 .ye-topbar-title h1 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -110,3 +110,11 @@ select.ye-field { padding-right: calc(var(--ye-ctl-px) + 24px); background-image
 .ye-chip-input > .ye-chip-remove { width: 36px; height: 36px; flex: none; border: 0; border-radius: 50%; background: transparent; display: inline-flex; align-items: center; justify-content: center; }
 .ye-toast-pill { --ye-toast-radius: var(--ye-radius-pill); }
 @media (prefers-reduced-motion: reduce) { .ye-pill:active, .ye-iconbtn:active { transform: none; } }
+
+/* Bottom tab bar: .ye-tabbar > .ye-tab (icon, optional label). Flat, hairline on top, safe-area aware. */
+.ye-tabbar { box-sizing: border-box; display: flex; height: calc(var(--ye-tabbar-h, 56px) + env(safe-area-inset-bottom, 0px)); padding-bottom: env(safe-area-inset-bottom, 0px); background: var(--ye-tabbar-bg, var(--ye-bg)); border-top: 1px solid var(--ye-tabbar-line, var(--ye-line)); }
+.ye-tabbar > .ye-tab { flex: 1; min-width: 0; height: var(--ye-tabbar-h, 56px); border: 0; background: transparent; }
+/* Segmented control: tonal track (fill), selected segment filled fg. Hooks: --ye-seg-bg, --ye-seg-on-bg/-fg, --ye-seg-item-h, --ye-seg-weight. */
+.ye-seg { display: flex; gap: 4px; padding: 4px; border-radius: var(--ye-radius-pill); background: var(--ye-seg-bg, var(--ye-tone)); }
+.ye-seg > button { flex: 1; min-width: 0; height: var(--ye-seg-item-h, max(36px, calc(var(--ye-ctl-h) - 8px))); border: 0; border-radius: var(--ye-radius-pill); background: transparent; color: inherit; font: inherit; font-weight: var(--ye-seg-weight, 500); }
+.ye-seg > button:is(.is-on, [aria-pressed='true'], [aria-selected='true']) { background: var(--ye-seg-on-bg, var(--ye-fg)); color: var(--ye-seg-on-fg, var(--ye-on-fg)); }
