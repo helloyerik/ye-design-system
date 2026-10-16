@@ -1,5 +1,5 @@
 <!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="color-scheme" content="light dark"><title>yetemplate</title>
+<meta name="color-scheme" content="light dark"><title>__APP_NAME__</title>
 <style>
 :root{--bg:#fff;--fg:#000;--dim:rgba(0,0,0,.6);--line:rgba(0,0,0,.14);--tone:rgba(0,0,0,.05);--err:#b3261e}
 @media (prefers-color-scheme:dark){:root{--bg:#000;--fg:#fff;--dim:rgba(255,255,255,.6);--line:rgba(255,255,255,.12);--tone:rgba(255,255,255,.08);--err:#ff8a80}}
@@ -11,12 +11,12 @@ input:focus{outline:2px solid var(--fg);outline-offset:1px}
 button{height:48px;border-radius:24px;border:0;background:var(--fg);color:var(--bg);font:600 15px system-ui,sans-serif}
 .err{color:var(--err)}
 </style></head><body><main>
-<h1>yetemplate</h1>
-<p>Enter your yetemplate server address, for example <b>http://t470:PORT</b> (your Tailscale name).</p>
+<h1>__APP_NAME__</h1>
+<p>Enter your __APP_NAME__ server address, for example <b>http://t470:PORT</b> (your Tailscale name).</p>
 <form id="f"><input id="u" type="url" inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="http://t470:PORT" required></form>
 <p id="e" class="err" hidden></p>
 <button form="f" type="submit">Connect</button>
-<p>You can change it later: long-press the yetemplate icon → Server address.</p>
+<p>You can change it later: long-press the __APP_NAME__ icon → Server address.</p>
 </main><script>
 const q=new URLSearchParams(location.search),u=document.getElementById('u'),e=document.getElementById('e')
 u.value=(window.YeSetup&&YeSetup.current())||''

@@ -2,6 +2,6 @@
 <!-- Долгое нажатие на иконку → «Server address» (сменить сервер в любой момент) -->
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut android:shortcutId="server" android:enabled="true" android:icon="@drawable/ic_fg" android:shortcutShortLabel="@string/change_server">
-        <intent android:action="app.yetemplate.SETUP" android:targetPackage="app.yetemplate" android:targetClass="app.yetemplate.MainActivity" />
+        <intent android:action="app.yewebview.SETUP" android:targetPackage="app.yewebview" android:targetClass="app.yewebview.MainActivity" />
     </shortcut>
 </shortcuts>

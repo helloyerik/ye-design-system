@@ -12,10 +12,10 @@ plugins {
 val keyProps = file(System.getenv("YE_KEYSTORE_PROPS") ?: "${System.getProperty("user.home")}/.ye-keys/keystore.properties")
 
 android {
-    namespace = "app.yetemplate"
+    namespace = "app.yewebview"
     compileSdk = 35
     defaultConfig {
-        applicationId = "app.yetemplate"
+        applicationId = "app.yewebview"
         minSdk = 26
         targetSdk = 35
         versionCode = (findProperty("yeVersionCode") as String?)?.toInt() ?: 1

@@ -9,8 +9,8 @@ src="$(cd "$(dirname "$0")/.." && pwd)/android/webview-template"
 [[ $appid =~ ^[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*)+$ ]] || { echo "bad applicationId"; exit 1; }
 mkdir -p "$out"; cp -r "$src"/. "$out"/; rm -f "$out/README.md"
 pkgdir="$out/app/src/main/java/$(echo "$appid" | tr . /)"; mkdir -p "$pkgdir"
-mv "$out/app/src/main/java/app/yetemplate/MainActivity.kt" "$pkgdir/"; rmdir "$out/app/src/main/java/app/yetemplate" 2>/dev/null || true
-grep -rlZ 'yetemplate' "$out" | xargs -0 sed -i -e "s/app\.yetemplate/$appid/g" -e "s/yetemplate/$name/g"
+mv "$out/app/src/main/java/app/yewebview/MainActivity.kt" "$pkgdir/"; rmdir "$out/app/src/main/java/app/yewebview" 2>/dev/null || true
+grep -rlZ -e 'yewebview' -e '__APP_NAME__' "$out" | xargs -0 sed -i -e "s/app\.yewebview/$appid/g" -e "s/yewebview/$name/g" -e "s/__APP_NAME__/$name/g"
 [[ -n $server ]] && echo "yeServer=$server" >> "$out/gradle.properties"
 sed -i "s/PORT/${server##*:}/" "$out/app/src/main/assets/setup.html" 2>/dev/null || true
 echo "generated $out ($appid). Build: (cd $out && ./gradlew assembleRelease)"

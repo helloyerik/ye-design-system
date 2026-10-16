@@ -1,4 +1,4 @@
-package app.yetemplate
+package app.yewebview
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -17,14 +17,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
 
 /**
- * WebView-обёртка yetemplate (по образцу yeplayer). Весь UI — с сервера пользователя (адрес в prefs "server").
+ * WebView-обёртка приложения (по образцу yeplayer). Весь UI — с сервера пользователя (адрес в prefs "server").
  * Первый запуск / ошибка загрузки / ярлык «Server address» (долгое нажатие на иконку) → assets/setup.html.
  * Инсеты системных баров → CSS --ye-inset-top/--ye-inset-bottom (контракт ye-design-system) (+ left/right); тема — системная (prefers-color-scheme в WebView,
  * иконки баров по uiMode); выбор файлов — системный пикер (multiple, image/video); Back → window.yeBack() → history → выход.
  */
 class MainActivity : ComponentActivity() {
     private lateinit var web: WebView
-    private val prefs by lazy { getSharedPreferences("yetemplate", MODE_PRIVATE) }
+    private val prefs by lazy { getSharedPreferences("yewebview", MODE_PRIVATE) }
     private var insetsJs = ""
     private var chooser: ValueCallback<Array<Uri>>? = null
     // saved address wins; else the build-time default (-PyeServer=http://t470:8790); else setup screen
@@ -80,7 +80,7 @@ class MainActivity : ComponentActivity() {
 
     private fun open(i: Intent?) {
         val s = server
-        if (s == null || i?.action == "app.yetemplate.SETUP") web.loadUrl(SETUP) else web.loadUrl(s)
+        if (s == null || i?.action == "app.yewebview.SETUP") web.loadUrl(SETUP) else web.loadUrl(s)
     }
 
     private fun dark() = (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
