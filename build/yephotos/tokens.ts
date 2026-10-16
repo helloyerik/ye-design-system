@@ -155,7 +155,7 @@ export const tokens = {
     "stroke": 2
   },
   "font": {
-    "family": "Geist, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    "family": "system-ui, -apple-system, BlinkMacSystemFont, \"SF Pro Text\", \"Segoe UI\", \"Ubuntu Sans\", Ubuntu, Roboto, \"Noto Sans\", \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\""
   },
   "type": {
     "h1": {

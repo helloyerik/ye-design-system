@@ -1,4 +1,3 @@
-@import './fonts.css';
 /* ye-design-system primitives. Requires a tokens.css from build/<app>/ loaded first.
    Canon: hit >= 48 (--ye-size-touch), primary 56; pill radius ONLY on controls; surfaces r1/r2/r3; no shadows;
    at rest a control is filled OR outlined, never both; 4 text styles (h1/h2/body/muted); monochrome.

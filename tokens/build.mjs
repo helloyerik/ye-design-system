@@ -90,7 +90,7 @@ StyleDictionary.registerFormat({
     group('Dur', (t) => t.path[0] === 'dur', (t) => `        const val ${camel(t.path.slice(1))}Ms = ${num(t)}`)
     group('Spring', (t) => t.path[0] === 'spring', (t) => { const s = springNorm(val(t)); return `        fun <T> ${camel(t.path.slice(1))}() = spring<T>(dampingRatio = ${s.dampingRatio}f, stiffness = ${s.stiffness}f)` })
     group('Gesture', (t) => t.path[0] === 'gesture', (t) => typeof val(t) === 'string' ? `        val ${camel(t.path.slice(1))} = ${num(t)}.dp` : `        const val ${camel(t.path.slice(1))} = ${val(t)}f`)
-    out.push(`    const val ICON_STROKE = 2f\n    const val FONT_FAMILY = "Geist"`)
+    out.push(`    const val ICON_STROKE = 2f\n    const val FONT_FAMILY = "sans-serif"`)
     out.push('}\n')
     return out.join('\n')
   },

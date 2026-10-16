@@ -154,5 +154,5 @@ object YeTokens {
         val pageShift = 20.dp
     }
     const val ICON_STROKE = 2f
-    const val FONT_FAMILY = "Geist"
+    const val FONT_FAMILY = "sans-serif"
 }

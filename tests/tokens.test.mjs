@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { readFileSync, readdirSync } from 'node:fs'
+import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { springCss, springNorm } from '../tokens/build.mjs'
 
 const apps = readdirSync(new URL('../build', import.meta.url))
@@ -37,4 +37,9 @@ test('kotlin has no raw rgba and colours are ARGB', () => {
 test('field outline tokens exist in every theme block', () => {
   for (const a of apps) for (const b of blocks(css(a))) for (const k of ['field-line', 'field-line-focus', 'search-fill']) assert.match(b, new RegExp('--ye-' + k + ':'), a + ' ' + k)
 })
-test('font is Geist (self-hosted, Cyrillic)', () => { assert.match(css('base'), /--ye-font-family[^;]*: Geist,/); assert.ok(readFileSync(new URL('../fonts/Geist-Variable.woff2', import.meta.url)).length > 30000) })
+test('font is the platform system stack (no web font files)', () => {
+  const c = css('base'); assert.match(c, /--ye-font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",[^;]*sans-serif, "Apple Color Emoji", "Segoe UI Emoji";/); assert.doesNotMatch(c, /Geist/i)
+  assert.ok(!existsSync(new URL('../fonts', import.meta.url)) || !readdirSync(new URL('../fonts', import.meta.url)).some((f) => /geist/i.test(f)))
+  assert.doesNotMatch(readFileSync(new URL('../packages/ui-react/src/ui.css', import.meta.url), 'utf8'), /@font-face|Geist/i)
+  for (const a of apps) assert.match(readFileSync(new URL(`../build/${a}/YeTokens.kt`, import.meta.url), 'utf8'), /FONT_FAMILY = "sans-serif"/)
+})

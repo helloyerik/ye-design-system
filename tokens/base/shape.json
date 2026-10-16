@@ -67,9 +67,9 @@
   },
   "font": {
     "family": {
-      "$value": "Geist, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+      "$value": "system-ui, -apple-system, BlinkMacSystemFont, \"SF Pro Text\", \"Segoe UI\", \"Ubuntu Sans\", Ubuntu, Roboto, \"Noto Sans\", \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\"",
       "$type": "fontFamily",
-      "$description": "Geist Sans everywhere (owner decision 2026-10-16; was Figtree). Self-hosted fonts/Geist-Variable.woff2, Latin+Cyrillic"
+      "$description": "Platform system font everywhere (owner decision 2026-10-16; replaces Geist). No web font files shipped; Android uses FontFamily.Default (sans-serif)"
     }
   }
 }

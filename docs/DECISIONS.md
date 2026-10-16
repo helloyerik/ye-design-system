@@ -1,7 +1,7 @@
 # Decisions (owner-approved 2026-10-15)
 
 - **Name:** ye-design-system, packages `@yeds/*`, submodule path `ye-design-system`. Unrelated to public `helloyerik/yedesign-system` (Vue).
-- **Font:** Geist Sans everywhere (2026-10-16, replaces Geist; self-hosted `fonts/Geist-Variable.woff2`/`.ttf`, Latin + Cyrillic, loaded by `ui.css` → `fonts.css`; Android bundles the TTF as `res/font/geist.ttf`). No mono font in use, so Geist Mono is not shipped. Reader serif stays a reader-only exception.
+- **Font:** platform system font everywhere (2026-10-16, replaces Geist). Web: `--ye-font-family` = `system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "Ubuntu Sans", Ubuntu, Roboto, "Noto Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"`; no font files, no `@font-face`. Android: `FontFamily.Default` (sans-serif / Roboto), no bundled TTF. The 4 text styles (body 16, muted 14, h1, h2) are unchanged. Reader serif stays a reader-only exception.
 - **Icons:** Tabler everywhere (yeplayer's Astryx icon registry is re-pointed to Tabler, as yephotos already does).
 - **i18n:** English default; Russian kept as the secondary `ru` locale.
 - **Signing:** one shared key, manual signing on one machine, no CI secrets.
@@ -35,7 +35,7 @@ Owner rule, locked:
 
 > Align elements to visible content edges, never to an invisible bounding box or empty padding zone. Active/hover pills hug icon+label (only enough padding for the 44–48px hit target). Columns and amounts align to the content, not a floating max-width gutter.
 
-Also keep: at rest fill OR outline never both; only controls are pills 999px; surfaces 12/20/28; Geist + Tabler; English UI.
+Also keep: at rest fill OR outline never both; only controls are pills 999px; surfaces 12/20/28; system font + Tabler; English UI.
 
 Do not set sidebar nav items to `width: 100%` / stretch them in a column flex rail. Use `width: fit-content` (or `align-items: flex-start` on the rail) so the active pill hugs the label.
 
