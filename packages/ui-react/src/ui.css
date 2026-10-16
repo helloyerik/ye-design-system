@@ -17,13 +17,13 @@
 .ye-topbar-title { flex: 1; min-width: 0; }
 .ye-topbar-title h1 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ye-topbar-actions { display: flex; gap: 4px; align-items: center; }
-.ye-iconbtn { display: inline-flex; align-items: center; justify-content: center; width: var(--ye-size-touch); height: var(--ye-size-touch); flex: none; border-radius: 50%; color: var(--ye-fg); transition: background-color .15s var(--ye-ease-emphasized); }
-.ye-iconbtn:hover { background: var(--ye-tone); }
+.ye-iconbtn { display: inline-flex; align-items: center; justify-content: center; width: var(--ye-iconbtn-size, var(--ye-size-touch)); height: var(--ye-iconbtn-size, var(--ye-size-touch)); flex: none; border-radius: 50%; color: var(--ye-fg); background: var(--ye-iconbtn-bg, transparent); transition: background-color .15s var(--ye-ease-emphasized), opacity .15s var(--ye-ease-emphasized), transform .1s var(--ye-ease-emphasized); }
+.ye-iconbtn:hover { background: var(--ye-iconbtn-hover, var(--ye-tone)); }
 .ye-iconbtn:active, .ye-iconbtn.is-active { background: var(--ye-tone2); }
-.ye-pill { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--ye-size-touch); padding: 0 20px; border-radius: var(--ye-radius-pill); font-weight: 600; white-space: nowrap; transition: background-color .15s var(--ye-ease-emphasized), transform .1s var(--ye-ease-emphasized); }
+.ye-pill { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--ye-pill-h, var(--ye-size-touch)); padding: 0 var(--ye-pill-px, 20px); border-radius: var(--ye-radius-pill); font-weight: var(--ye-pill-weight, 600); white-space: nowrap; transition: background-color .15s var(--ye-ease-emphasized), transform .1s var(--ye-ease-emphasized); }
 .ye-pill:active:not(:disabled) { transform: scale(.97); }
-.ye-pill-primary { background: var(--ye-fg); color: var(--ye-on-fg); }
-.ye-pill-secondary { background: var(--ye-tone2); }
+.ye-pill-primary { background: var(--ye-pill-primary-bg, var(--ye-fg)); color: var(--ye-pill-primary-fg, var(--ye-on-fg)); }
+.ye-pill-secondary { background: var(--ye-pill-secondary-bg, var(--ye-tone2)); }
 .ye-pill-ghost { background: transparent; }
 .ye-pill-ghost:hover, .ye-pill-ghost.is-on { background: var(--ye-tone); }
 .ye-pill-danger { background: var(--ye-danger); color: var(--ye-on-danger); }
@@ -46,7 +46,7 @@
 @keyframes ye-pulse { from { opacity: .4; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .ye-loading span { animation: none; opacity: .7; } }
 .ye-chips { display: flex; gap: 8px; overflow-x: auto; }
-.ye-chip { min-height: var(--ye-size-chip); padding: 0 16px; border-radius: var(--ye-radius-pill); border: 1px solid var(--ye-line); white-space: nowrap; position: relative; }
+.ye-chip { min-height: var(--ye-ctl-chip-h, var(--ye-size-chip)); padding: 0 16px; border-radius: var(--ye-radius-pill); border: 1px solid var(--ye-line); white-space: nowrap; position: relative; }
 .ye-chip::after { content: ''; position: absolute; inset: -4px 0; }
 .ye-chip.is-on { background: var(--ye-fg); color: var(--ye-on-fg); border-color: var(--ye-fg); }
 .ye-scrim { position: fixed; inset: 0; z-index: 50; background: var(--ye-scrim); display: flex; align-items: flex-end; justify-content: center; animation: ye-fade .2s var(--ye-ease-emphasized); }
@@ -56,8 +56,8 @@
 @keyframes ye-fade { from { opacity: 0; } }
 @keyframes ye-up { from { transform: translateY(40%); opacity: 0; } }
 @keyframes ye-pop { from { transform: scale(.96); opacity: 0; } }
-.ye-toasts { position: fixed; left: 50%; transform: translateX(-50%); bottom: var(--ye-toast-bottom, calc(var(--ye-inset-bottom, env(safe-area-inset-bottom, 0px)) + 12px)); z-index: 60; display: flex; flex-direction: column; gap: 8px; width: min(92vw, 440px); pointer-events: none; }
-.ye-toast { display: flex; align-items: center; gap: 12px; min-height: var(--ye-size-touch); padding: 0 8px 0 20px; border-radius: var(--ye-radius-r2); background: var(--ye-toast-bg); color: var(--ye-toast-fg); pointer-events: auto; animation: ye-up .25s var(--ye-ease-emphasized); }
+.ye-toasts { position: fixed; left: 50%; transform: translateX(-50%); bottom: var(--ye-toast-bottom, calc(var(--ye-inset-bottom, env(safe-area-inset-bottom, 0px)) + 12px)); z-index: 60; display: flex; flex-direction: column; align-items: var(--ye-toasts-align, stretch); gap: 8px; width: min(92vw, 440px); pointer-events: none; }
+.ye-toast { display: flex; align-items: center; gap: 12px; min-height: var(--ye-toast-h, var(--ye-size-touch)); padding: var(--ye-toast-pad, 0 8px 0 20px); border-radius: var(--ye-toast-radius, var(--ye-radius-r2)); font-weight: var(--ye-toast-weight, inherit); background: var(--ye-toast-bg); color: var(--ye-toast-fg); pointer-events: auto; animation: ye-up .25s var(--ye-ease-emphasized); }
 .ye-toast span { flex: 1; }
 .ye-toast-action { min-height: var(--ye-size-touch); padding: 0 12px; font-weight: 600; border-radius: var(--ye-radius-pill); }
 
@@ -66,8 +66,8 @@
 :root { --ye-ctl-h: var(--ye-size-touch); --ye-ctl-px: 16px; --ye-ctl-chip-h: var(--ye-size-chip); }
 @media (min-width: 900px) and (pointer: fine) {
   :root { --ye-ctl-h: calc(var(--ye-size-touch) - 8px); --ye-ctl-px: 12px; --ye-ctl-chip-h: max(36px, calc(var(--ye-size-chip) - 8px)); }
-  .ye-pill { min-height: var(--ye-ctl-h); padding: 0 16px; }
-  .ye-iconbtn { width: var(--ye-ctl-h); height: var(--ye-ctl-h); }
+  .ye-pill { min-height: var(--ye-pill-h, var(--ye-ctl-h)); padding: 0 var(--ye-pill-px, 16px); }
+  .ye-iconbtn { width: var(--ye-iconbtn-size, var(--ye-ctl-h)); height: var(--ye-iconbtn-size, var(--ye-ctl-h)); }
   .ye-chip { min-height: var(--ye-ctl-chip-h); padding: 0 12px; }
   .ye-textbtn { min-height: var(--ye-ctl-h); }
   .ye-toast-action { min-height: var(--ye-ctl-h); padding: 0 8px; }
@@ -93,3 +93,20 @@ select.ye-field { padding-right: calc(var(--ye-ctl-px) + 24px); background-image
 .ye-search > input { flex: 1; min-width: 0; min-height: var(--ye-ctl-h); font: inherit; color: inherit; background: none; border: 0; padding: 0; outline: none; }
 .ye-search > input::-webkit-search-cancel-button { display: none; }
 .ye-search:has(> input:focus-visible) { outline: 2px solid var(--ye-field-line-focus); }
+
+/* App hooks (2026-10-16): apps tune shared primitives with variables only, never by re-declaring the rule.
+   --ye-pill-h / --ye-pill-px / --ye-pill-weight, --ye-pill-primary-bg/-fg, --ye-pill-secondary-bg, --ye-pill-hover (secondary/ghost),
+   --ye-pill-primary-hover-opacity, --ye-iconbtn-size / -bg / -hover, --ye-toast-h / -pad / -radius / -weight. Defaults = canon above. */
+.ye-pill-secondary:hover:not(:disabled) { background: var(--ye-pill-hover, var(--ye-pill-secondary-bg, var(--ye-tone2))); }
+.ye-pill-ghost:hover:not(:disabled) { background: var(--ye-pill-hover, var(--ye-tone)); }
+.ye-pill-primary:hover:not(:disabled) { opacity: var(--ye-pill-primary-hover-opacity, 1); }
+.ye-pill-sm { min-height: var(--ye-pill-sm-h, var(--ye-pill-h, var(--ye-ctl-h))); padding: 0 var(--ye-pill-sm-px, var(--ye-pill-px, 16px)); }
+.ye-pill-lg { min-height: var(--ye-pill-lg-h, var(--ye-size-primary)); padding: 0 var(--ye-pill-lg-px, 24px); }
+.ye-iconbtn-sm { width: var(--ye-iconbtn-sm-size, var(--ye-iconbtn-size, var(--ye-ctl-h))); height: var(--ye-iconbtn-sm-size, var(--ye-iconbtn-size, var(--ye-ctl-h))); }
+.ye-pill:disabled, .ye-iconbtn:disabled { opacity: var(--ye-disabled-opacity, .4); cursor: default; transform: none; }
+/* Input chip (removable token: label + ×): FILLED tonal, no border. Filter chips stay .ye-chip (outlined). */
+.ye-chip-input { display: inline-flex; align-items: center; max-width: 100%; min-width: 0; min-height: var(--ye-ctl-h); padding: 0 4px 0 16px; border-radius: var(--ye-radius-pill); background: var(--ye-chip-input-bg, var(--ye-tone2)); }
+.ye-chip-input > .ye-chip-label { min-width: 0; max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; border: 0; background: transparent; }
+.ye-chip-input > .ye-chip-remove { width: 36px; height: 36px; flex: none; border: 0; border-radius: 50%; background: transparent; display: inline-flex; align-items: center; justify-content: center; }
+.ye-toast-pill { --ye-toast-radius: var(--ye-radius-pill); }
+@media (prefers-reduced-motion: reduce) { .ye-pill:active, .ye-iconbtn:active { transform: none; } }

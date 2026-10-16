@@ -6,9 +6,9 @@ const css = readFileSync(new URL('../packages/ui-react/src/ui.css', import.meta.
 const rule = (sel) => (css.match(new RegExp('^' + sel.replace(/[.[\]]/g, '\\$&') + ' \\{([^}]*)\\}', 'm')) || [])[1] || ''
 test('no shadows anywhere', () => assert.doesNotMatch(css, /box-shadow:(?!\s*none)/))
 test('pill radius only on controls', () => {
-  for (const m of css.matchAll(/^([^{]+)\{[^}]*var\(--ye-radius-pill\)/gm)) assert.match(m[1], /ye-(pill|chip|toast-action|tab|loading|field|search)/, m[1])
+  for (const m of css.matchAll(/^([^{]+)\{[^}]*var\(--ye-radius-pill\)/gm)) assert.match(m[1], /ye-(pill|chip|toast-action|toast-pill|tab|loading|field|search)/, m[1])
 })
-test('controls >= 48', () => { for (const s of ['.ye-pill', '.ye-textbtn', '.ye-toast-action']) assert.match(rule(s), /min-height: var\(--ye-size-touch\)/, s); assert.match(rule('.ye-iconbtn'), /width: var\(--ye-size-touch\)/) })
+test('controls >= 48', () => { for (const s of ['.ye-pill', '.ye-textbtn', '.ye-toast-action']) assert.match(rule(s), /min-height: var\((--ye-[a-z-]+, var\()?--ye-size-touch\)/, s); assert.match(rule('.ye-iconbtn'), /width: var\(--ye-iconbtn-size, var\(--ye-size-touch\)\)/) })
 test('fill OR outline: chip outlined at rest; filled when on (border = same colour)', () => {
   assert.match(rule('.ye-chip'), /border: 1px solid/); assert.doesNotMatch(rule('.ye-chip'), /background/)
   assert.match(rule('.ye-chip.is-on'), /border-color: var\(--ye-fg\)/)
@@ -22,4 +22,8 @@ test('fields: outline at rest (transparent), search filled (no border), textarea
   assert.match(rule('.ye-field'), /background: transparent; border: 1px solid var\(--ye-field-line\)/)
   assert.match(rule('.ye-search'), /background: var\(--ye-search-fill\); border: 0/)
   assert.match(css, /textarea\.ye-field[^{]*\{[^}]*border-radius: var\(--ye-radius-r1\)/)
+})
+test('app hooks keep canon defaults', () => {
+  assert.match(rule('.ye-pill-primary'), /var\(--ye-pill-primary-bg, var\(--ye-fg\)\)/)
+  assert.match(rule('.ye-chip-input'), /background: var\(--ye-chip-input-bg, var\(--ye-tone2\)\)/); assert.doesNotMatch(rule('.ye-chip-input'), /border:/)
 })
