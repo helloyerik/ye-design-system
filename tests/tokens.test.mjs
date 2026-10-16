@@ -34,3 +34,6 @@ test('kotlin has no raw rgba and colours are ARGB', () => {
   const k = readFileSync(new URL('../build/base/YeTokens.kt', import.meta.url), 'utf8')
   assert.doesNotMatch(k, /rgba/); assert.match(k, /val dim = Color\(0x99000000\)/); assert.match(k, /fun <T> settle\(\) = spring<T>\(dampingRatio = 0.9f, stiffness = 600f\)/)
 })
+test('field outline tokens exist in every theme block', () => {
+  for (const a of apps) for (const b of blocks(css(a))) for (const k of ['field-line', 'field-line-focus', 'search-fill']) assert.match(b, new RegExp('--ye-' + k + ':'), a + ' ' + k)
+})

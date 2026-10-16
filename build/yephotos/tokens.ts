@@ -15,7 +15,10 @@ export const tokens = {
       "danger": "#c4221a",
       "on-danger": "#ffffff",
       "err": "#b3261e",
-      "scrim": "rgba(0,0,0,.4)"
+      "scrim": "rgba(0,0,0,.4)",
+      "field-line": "rgba(0,0,0,.42)",
+      "field-line-focus": "#000000",
+      "search-fill": "rgba(0,0,0,.05)"
     },
     "dark": {
       "bg": "#000000",
@@ -31,7 +34,10 @@ export const tokens = {
       "danger": "#ff5449",
       "on-danger": "#000000",
       "err": "#ff8a80",
-      "scrim": "rgba(0,0,0,.6)"
+      "scrim": "rgba(0,0,0,.6)",
+      "field-line": "rgba(255,255,255,.38)",
+      "field-line-focus": "#ffffff",
+      "search-fill": "rgba(255,255,255,.1)"
     }
   },
   "ease": {

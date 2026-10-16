@@ -8,7 +8,8 @@
       "tone": { "$value": "rgba(0,0,0,.05)" }, "tone2": { "$value": "rgba(0,0,0,.09)" },
       "surface": { "$value": "#f2f2f2" }, "toast-bg": { "$value": "#1a1a1a" }, "toast-fg": { "$value": "#ffffff" },
       "danger": { "$value": "#c4221a" }, "on-danger": { "$value": "#ffffff" }, "err": { "$value": "#b3261e" },
-      "scrim": { "$value": "rgba(0,0,0,.4)" }
+      "scrim": { "$value": "rgba(0,0,0,.4)" },
+      "field-line": { "$value": "rgba(0,0,0,.42)", "$description": "Outline of text fields at rest; >=3:1 on bg and surface" }, "field-line-focus": { "$value": "#000000" }, "search-fill": { "$value": "rgba(0,0,0,.05)" }
     },
     "dark": {
       "bg": { "$value": "#000000" }, "fg": { "$value": "#ffffff" }, "on-fg": { "$value": "#000000" },
@@ -16,7 +17,8 @@
       "tone": { "$value": "rgba(255,255,255,.08)" }, "tone2": { "$value": "rgba(255,255,255,.14)" },
       "surface": { "$value": "#161616" }, "toast-bg": { "$value": "#ececec" }, "toast-fg": { "$value": "#000000" },
       "danger": { "$value": "#ff5449" }, "on-danger": { "$value": "#000000" }, "err": { "$value": "#ff8a80" },
-      "scrim": { "$value": "rgba(0,0,0,.6)" }
+      "scrim": { "$value": "rgba(0,0,0,.6)" },
+      "field-line": { "$value": "rgba(255,255,255,.38)" }, "field-line-focus": { "$value": "#ffffff" }, "search-fill": { "$value": "rgba(255,255,255,.1)" }
     }
   }
 }

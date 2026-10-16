@@ -23,6 +23,9 @@ object YeTokens {
         val onDanger = Color(0xFFFFFFFF)
         val err = Color(0xFFB3261E)
         val scrim = Color(0x66000000)
+        val fieldLine = Color(0x6B000000)
+        val fieldLineFocus = Color(0xFF000000)
+        val searchFill = Color(0x0D000000)
     }
     object Dark {
         val bg = Color(0xFF000000)
@@ -39,6 +42,9 @@ object YeTokens {
         val onDanger = Color(0xFF000000)
         val err = Color(0xFFFF8A80)
         val scrim = Color(0x99000000)
+        val fieldLine = Color(0x61FFFFFF)
+        val fieldLineFocus = Color(0xFFFFFFFF)
+        val searchFill = Color(0x1AFFFFFF)
     }
     object Radius {
         val pill = 999.dp

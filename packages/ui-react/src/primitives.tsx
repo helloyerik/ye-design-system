@@ -5,7 +5,7 @@
  * Icons are passed as nodes (apps wrap these with their own createIcon map). Copy comes from the app (i18n).
  * Extracted from yephotos frontend/src/ui.tsx (2026-10-15); class names are `ye-*`, styles in ui.css.
  */
-import { useEffect, useRef, type ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode, type InputHTMLAttributes, type TextareaHTMLAttributes, type SelectHTMLAttributes } from 'react'
 
 type Press = { onPointerDown?: () => void; onPointerUp?: () => void }
 
@@ -107,3 +107,12 @@ export const Loading = ({ label = 'Loading' }: { label?: string }) => <div class
 export const Text = ({ as: Tag = 'p', kind = 'body', children, className = '' }: { as?: 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'div'; kind?: 'title' | 'body' | 'caption'; children: ReactNode; className?: string }) => (
   <Tag className={`ye-text-${kind}${className ? ' ' + className : ''}`}>{children}</Tag>
 )
+
+/** Text field: OUTLINE at rest (transparent, 1px --ye-field-line), pill, compact on desktop. Also for date/number/email/combobox inputs. */
+export const Field = ({ className = '', ...p }: InputHTMLAttributes<HTMLInputElement>) => <input {...p} className={'ye-field' + (className ? ' ' + className : '')} />
+/** Multiline field: outline, radius r1 (12). */
+export const TextArea = ({ className = '', ...p }: TextareaHTMLAttributes<HTMLTextAreaElement>) => <textarea {...p} className={'ye-field' + (className ? ' ' + className : '')} />
+/** Native select: outline + chevron. */
+export const Select = ({ className = '', children, ...p }: SelectHTMLAttributes<HTMLSelectElement>) => <select {...p} className={'ye-field' + (className ? ' ' + className : '')}>{children}</select>
+/** Search field: FILLED (--ye-search-fill, no border) — acts almost like a button. */
+export const Search = ({ className = '', type = 'search', ...p }: InputHTMLAttributes<HTMLInputElement>) => <input type={type} {...p} className={'ye-search' + (className ? ' ' + className : '')} />

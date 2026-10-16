@@ -71,3 +71,19 @@
   .ye-textbtn { min-height: var(--ye-ctl-h); }
   .ye-toast-action { min-height: var(--ye-ctl-h); padding: 0 8px; }
 }
+
+/* Form fields (2026-10-16). Canon: at rest fill XOR outline.
+   .ye-field = text input / select / combobox / date: OUTLINE (transparent, 1px --ye-field-line). Focus: border → --ye-field-line-focus + 1px inner outline (no shadows).
+   .ye-search = search field: FILL (--ye-search-fill, no border) — it behaves almost like a button.
+   Radius pill; textarea r1 (12). Height follows --ye-ctl-h (compact on desktop). */
+.ye-field, .ye-search { box-sizing: border-box; width: 100%; min-height: var(--ye-ctl-h); padding: 0 var(--ye-ctl-px); border-radius: var(--ye-radius-pill); font: inherit; font-size: var(--ye-type-body-size); color: var(--ye-fg); outline: 0 solid transparent; appearance: none; -webkit-appearance: none; transition: border-color .15s var(--ye-ease-emphasized); }
+.ye-field { background: transparent; border: 1px solid var(--ye-field-line); }
+.ye-field:hover { border-color: var(--ye-dim); }
+.ye-field:focus, .ye-field:focus-visible, .ye-field:focus-within { border-color: var(--ye-field-line-focus); outline: 1px solid var(--ye-field-line-focus); outline-offset: -2px; }
+.ye-field[aria-invalid="true"] { border-color: var(--ye-err); }
+.ye-field:disabled { opacity: .5; }
+textarea.ye-field, .ye-field.is-multiline { min-height: calc(var(--ye-ctl-h) * 2); padding: 12px var(--ye-ctl-px); border-radius: var(--ye-radius-r1); resize: vertical; }
+select.ye-field { padding-right: calc(var(--ye-ctl-px) + 24px); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right var(--ye-ctl-px) center; }
+.ye-search { background: var(--ye-search-fill); border: 0; }
+.ye-search:focus, .ye-search:focus-visible, .ye-search:focus-within { outline: 2px solid var(--ye-field-line-focus); outline-offset: 0; }
+.ye-field::placeholder, .ye-search::placeholder { color: var(--ye-dim); }
