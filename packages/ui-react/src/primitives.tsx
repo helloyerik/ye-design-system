@@ -5,7 +5,7 @@
  * Icons are passed as nodes (apps wrap these with their own createIcon map). Copy comes from the app (i18n).
  * Extracted from yephotos frontend/src/ui.tsx (2026-10-15); class names are `ye-*`, styles in ui.css.
  */
-import { useEffect, useRef, type ReactNode, type InputHTMLAttributes, type TextareaHTMLAttributes, type SelectHTMLAttributes } from 'react'
+import { useEffect, useRef, type ReactNode, type InputHTMLAttributes, type ButtonHTMLAttributes, type TextareaHTMLAttributes, type SelectHTMLAttributes } from 'react'
 
 type Press = { onPointerDown?: () => void; onPointerUp?: () => void }
 
@@ -18,8 +18,11 @@ export function IconBtn({ icon, label, onClick, active, disabled, href, tone, cl
 
 export type PillKind = 'primary' | 'secondary' | 'danger' | 'ghost'
 /** 48 px pill: primary (fill fg) / secondary (tonal fill) / ghost (none) / danger (fill). Never fill + outline. */
-export function Pill({ children, onClick, kind = 'secondary', icon, type = 'button', disabled, pressed, ...press }: { children: ReactNode; onClick?: () => void; kind?: PillKind; icon?: ReactNode; type?: 'button' | 'submit'; disabled?: boolean; pressed?: boolean } & Press) {
-  return <button type={type} className={'ye-pill ye-pill-' + kind + (pressed ? ' is-on' : '')} aria-pressed={pressed} onClick={onClick} disabled={disabled} {...press}>{icon}<span>{children}</span></button>
+export type PillSize = 'sm' | 'md' | 'lg'
+type PillExtra = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'type' | 'disabled' | 'children'> & { size?: PillSize; busy?: boolean }
+export function Pill({ children, onClick, kind = 'secondary', icon, type = 'button', disabled, pressed, size = 'md', busy, className = '', ...rest }: { children: ReactNode; onClick?: () => void; kind?: PillKind; icon?: ReactNode; type?: 'button' | 'submit'; disabled?: boolean; pressed?: boolean } & Press & PillExtra) {
+  const cls = 'ye-pill ye-pill-' + kind + (size !== 'md' ? ' ye-pill-' + size : '') + (pressed ? ' is-on' : '') + (className ? ' ' + className : '')
+  return <button type={type} className={cls} aria-pressed={pressed} aria-busy={busy || undefined} onClick={onClick} disabled={disabled || busy} {...rest}>{icon}<span>{children}</span></button>
 }
 
 /** List row >= 56 px: icon/thumb · title · meta · action. */

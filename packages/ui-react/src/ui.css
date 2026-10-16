@@ -26,7 +26,7 @@
 .ye-pill-secondary { background: var(--ye-pill-secondary-bg, var(--ye-tone2)); }
 .ye-pill-ghost { background: transparent; }
 .ye-pill-ghost:hover, .ye-pill-ghost.is-on { background: var(--ye-tone); }
-.ye-pill-danger { background: var(--ye-danger); color: var(--ye-on-danger); }
+.ye-pill-danger { background: var(--ye-pill-danger-bg, var(--ye-danger)); color: var(--ye-pill-danger-fg, var(--ye-on-danger)); }
 .ye-listitem { display: flex; align-items: center; gap: 16px; min-height: var(--ye-size-primary); padding: 4px 12px; border-radius: var(--ye-radius-r1); text-align: left; }
 .ye-listitem-dense { min-height: var(--ye-size-touch); }
 .ye-listitem-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -98,8 +98,8 @@ select.ye-field { padding-right: calc(var(--ye-ctl-px) + 24px); background-image
    --ye-pill-h / --ye-pill-px / --ye-pill-weight, --ye-pill-primary-bg/-fg, --ye-pill-secondary-bg, --ye-pill-hover (secondary/ghost),
    --ye-pill-primary-hover-opacity, --ye-iconbtn-size / -bg / -hover, --ye-toast-h / -pad / -radius / -weight. Defaults = canon above. */
 .ye-pill-secondary:hover:not(:disabled) { background: var(--ye-pill-hover, var(--ye-pill-secondary-bg, var(--ye-tone2))); }
-.ye-pill-ghost:hover:not(:disabled) { background: var(--ye-pill-hover, var(--ye-tone)); }
-.ye-pill-primary:hover:not(:disabled) { opacity: var(--ye-pill-primary-hover-opacity, 1); }
+.ye-pill-ghost:hover:not(:disabled) { background: var(--ye-pill-ghost-hover, var(--ye-pill-hover, var(--ye-tone))); }
+.ye-pill-primary:hover:not(:disabled) { opacity: var(--ye-pill-primary-hover-opacity, 1); background: var(--ye-pill-primary-hover, var(--ye-pill-primary-bg, var(--ye-fg))); }
 .ye-pill-sm { min-height: var(--ye-pill-sm-h, var(--ye-pill-h, var(--ye-ctl-h))); padding: 0 var(--ye-pill-sm-px, var(--ye-pill-px, 16px)); }
 .ye-pill-lg { min-height: var(--ye-pill-lg-h, var(--ye-size-primary)); padding: 0 var(--ye-pill-lg-px, 24px); }
 .ye-iconbtn-sm { width: var(--ye-iconbtn-sm-size, var(--ye-iconbtn-size, var(--ye-ctl-h))); height: var(--ye-iconbtn-sm-size, var(--ye-iconbtn-size, var(--ye-ctl-h))); }
