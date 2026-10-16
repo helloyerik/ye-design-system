@@ -37,3 +37,4 @@ test('kotlin has no raw rgba and colours are ARGB', () => {
 test('field outline tokens exist in every theme block', () => {
   for (const a of apps) for (const b of blocks(css(a))) for (const k of ['field-line', 'field-line-focus', 'search-fill']) assert.match(b, new RegExp('--ye-' + k + ':'), a + ' ' + k)
 })
+test('font is Geist (self-hosted, Cyrillic)', () => { assert.match(css('base'), /--ye-font-family[^;]*: Geist,/); assert.ok(readFileSync(new URL('../fonts/Geist-Variable.woff2', import.meta.url)).length > 30000) })

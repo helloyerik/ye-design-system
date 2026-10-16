@@ -67,9 +67,9 @@
   },
   "font": {
     "family": {
-      "$value": "Figtree, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+      "$value": "Geist, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
       "$type": "fontFamily",
-      "$description": "Figtree everywhere (owner decision 2026-10-15)"
+      "$description": "Geist Sans everywhere (owner decision 2026-10-16; was Figtree). Self-hosted fonts/Geist-Variable.woff2, Latin+Cyrillic"
     }
   }
 }

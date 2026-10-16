@@ -155,7 +155,7 @@ export const tokens = {
     "stroke": 2
   },
   "font": {
-    "family": "Figtree, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    "family": "Geist, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
   },
   "type": {
     "h1": {
