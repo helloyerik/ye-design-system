@@ -14,3 +14,7 @@ test('fill OR outline: chip outlined at rest; filled when on (border = same colo
   assert.match(rule('.ye-chip.is-on'), /border-color: var\(--ye-fg\)/)
   for (const k of ['primary', 'secondary', 'danger']) assert.doesNotMatch(rule('.ye-pill-' + k), /border/, k)
 })
+test('desktop compact variant: −8px height, ≥36 floor, fine pointer only', () => {
+  const m = css.match(/@media \(min-width: 900px\) and \(pointer: fine\) \{([\s\S]*?)\n\}/); assert.ok(m)
+  assert.match(m[1], /--ye-ctl-h: calc\(var\(--ye-size-touch\) - 8px\)/); assert.match(m[1], /max\(36px/)
+})

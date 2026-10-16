@@ -59,3 +59,15 @@
 .ye-toast { display: flex; align-items: center; gap: 12px; min-height: var(--ye-size-touch); padding: 0 8px 0 20px; border-radius: var(--ye-radius-r2); background: var(--ye-toast-bg); color: var(--ye-toast-fg); pointer-events: auto; animation: ye-up .25s var(--ye-ease-emphasized); }
 .ye-toast span { flex: 1; }
 .ye-toast-action { min-height: var(--ye-size-touch); padding: 0 12px; font-weight: 600; border-radius: var(--ye-radius-pill); }
+
+/* Desktop compact controls (2026-10-16): desktop (≥900px, fine pointer) = mobile − 8px height, − 4px padding-x.
+   Mobile/touch unchanged. Floor 36px hit target. Apps size their own inputs with --ye-ctl-h / --ye-ctl-px so rows match. */
+:root { --ye-ctl-h: var(--ye-size-touch); --ye-ctl-px: 16px; --ye-ctl-chip-h: var(--ye-size-chip); }
+@media (min-width: 900px) and (pointer: fine) {
+  :root { --ye-ctl-h: calc(var(--ye-size-touch) - 8px); --ye-ctl-px: 12px; --ye-ctl-chip-h: max(36px, calc(var(--ye-size-chip) - 8px)); }
+  .ye-pill { min-height: var(--ye-ctl-h); padding: 0 16px; }
+  .ye-iconbtn { width: var(--ye-ctl-h); height: var(--ye-ctl-h); }
+  .ye-chip { min-height: var(--ye-ctl-chip-h); padding: 0 12px; }
+  .ye-textbtn { min-height: var(--ye-ctl-h); }
+  .ye-toast-action { min-height: var(--ye-ctl-h); padding: 0 8px; }
+}
