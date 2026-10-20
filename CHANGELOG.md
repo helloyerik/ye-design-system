@@ -1,5 +1,6 @@
 # Changelog
 ## Unreleased — 2026-10-20
+- `YE_APPS`: Yetracker → https://tracker.yerik.xyz (shared Ye sign-in; https://hexpo.vercel.app still works).
 - `YE_APPS`: Yecalendar → https://calendar.yerik.xyz (primary host; shared Ye sign-in lives on *.yerik.xyz).
 - `AppRail` + `YE_APPS` + `YeMark` (`apps.tsx`, `.ye-rail*` in ui.css): desktop ye-apps switcher rail (Yandex 360 layout, monochrome). 40 px tiles via `--ye-ctl-h`, current app = `--ye-tone2` fill, CSS tooltip with the app name, disabled "Coming soon" tiles for apps with no public web URL (`url: null`), app-provided `bottom` slot (settings + avatar). `--ye-rail-head` aligns the mark with the app's top bar. Additive only: pixel-neutral for existing apps. First consumer: yecalendar.
 ## 2026-10-16

@@ -15,7 +15,7 @@ export type YeApp = { id: YeAppId; name: string; icon: TablerLike; url: string |
 
 export const YE_APPS: readonly YeApp[] = [
   { id: 'yecalendar', name: 'Yecalendar', icon: IconCalendar, url: 'https://calendar.yerik.xyz' },
-  { id: 'yetracker', name: 'Yetracker', icon: IconWallet, url: 'https://hexpo.vercel.app' },
+  { id: 'yetracker', name: 'Yetracker', icon: IconWallet, url: 'https://tracker.yerik.xyz' },
   { id: 'yefocus', name: 'Yefocus', icon: IconFocus2, url: 'https://yefocus.vercel.app' },
   { id: 'yeplayer', name: 'Yeplayer', icon: IconMusic, url: 'https://yeplayer.vercel.app' },
   { id: 'yephotos', name: 'Yephotos', icon: IconPhoto, url: null },
