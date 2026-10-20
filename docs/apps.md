@@ -8,7 +8,7 @@ This is the one list of Ye apps, used by the desktop rail and the account page's
 | id | name | url |
 |---|---|---|
 | `yecalendar` | Yecalendar | https://calendar.yerik.xyz |
-| `yetracker` | Yetracker | https://hexpo.vercel.app |
+| `yetracker` | Yetracker | https://tracker.yerik.xyz (old host https://hexpo.vercel.app still works) |
 | `yefocus` | Yefocus | https://yefocus.vercel.app |
 | `yeplayer` | Yeplayer | https://yeplayer.vercel.app |
 | `yephotos` · `yereader` · `yetube` | Yephotos · Yereader · Yetube | `null` (shown as "Coming soon") |
