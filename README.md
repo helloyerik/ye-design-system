@@ -9,11 +9,11 @@ Not related to the public GitHub repo `helloyerik/yedesign-system` (Vue, March 2
 | `tokens/base/*.json` | Single source (DTCG): colour (light/dark), radius, size, space, 3 text styles, motion (ease, dur, springs, gesture) |
 | `tokens/apps/<app>.json` | Per-app deviations (documented, to converge) |
 | `tokens/build.mjs` | Style Dictionary v4 → `build/<app>/tokens.css` (`--ye-*`), `tokens.ts`, `YeTokens.kt` |
-| `packages/ui-react` (`@yeds/ui-react`) | Primitives (IconBtn, Pill, ListItem, Chip, NavTab, Card, TextBtn, TopBar, Sheet, Toasts, Empty, Loading, Text), `ui.css`, `motion`, Tabler `createIcon`, `i18n` |
+| `packages/ui-react` (`@yeds/ui-react`) | Primitives (IconBtn, Pill, ListItem, Chip, NavTab, Card, TextBtn, TopBar, Sheet, Toasts, Empty, Loading, Text), ye-apps `AppRail` / `YE_APPS` / `YeMark` ([docs/apps.md](docs/apps.md)), `ui.css`, `motion`, Tabler `createIcon`, `i18n` |
 | `android/webview-template` | WebView wrapper (insets, theme, back, file upload, server URL setup, shared signing) |
 | `android/compose` | Compose: generated `YeTokens.kt` now; `ye-compose-ui` module next (from yereader `:core:ui`) |
 | `scripts/` | `safe-install.sh`, `sign-apk.sh`, `create-shared-key.sh`, `migrate-to-shared-key.sh` (prepared, not run), `new-webview-app.sh`, `shotdiff.py` |
-| `docs/` | DECISIONS (system font, Tabler, springs), signing, selfhost (ThinkPad T470), i18n, adopting |
+| `docs/` | DECISIONS (system font, Tabler, springs), apps (AppRail, YE_APPS), signing, selfhost (ThinkPad T470), i18n, adopting |
 
 ```bash
 npm ci && npm run tokens   # regenerate build/ (committed; consumers need no npm)
