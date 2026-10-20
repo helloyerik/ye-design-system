@@ -2,7 +2,7 @@
  * ye-apps switcher rail (Yandex 360 layout, our canon): a narrow fixed column on desktop — suite mark on top,
  * one 40 px icon tile per ye-app (current = light fill, monochrome), a tooltip with the app name on hover/focus,
  * and an app-provided bottom slot (settings + avatar). Apps without a public web URL render disabled ("Coming soon").
- * URLs are the verified Vercel production URLs; never invent one — leave `url: null` until the app is deployed.
+ * URLs are verified production URLs (primary: <app>.yerik.xyz, else the Vercel URL); never invent one — leave `url: null` until the app is deployed.
  * Mobile: do not render the rail (apps may list YE_APPS in their drawer instead).
  */
 import type { ComponentType, ReactNode } from 'react'
@@ -14,7 +14,7 @@ export type YeAppId = 'yecalendar' | 'yetracker' | 'yefocus' | 'yeplayer' | 'yep
 export type YeApp = { id: YeAppId; name: string; icon: TablerLike; url: string | null }
 
 export const YE_APPS: readonly YeApp[] = [
-  { id: 'yecalendar', name: 'Yecalendar', icon: IconCalendar, url: 'https://yecalendar.vercel.app' },
+  { id: 'yecalendar', name: 'Yecalendar', icon: IconCalendar, url: 'https://calendar.yerik.xyz' },
   { id: 'yetracker', name: 'Yetracker', icon: IconWallet, url: 'https://hexpo.vercel.app' },
   { id: 'yefocus', name: 'Yefocus', icon: IconFocus2, url: 'https://yefocus.vercel.app' },
   { id: 'yeplayer', name: 'Yeplayer', icon: IconMusic, url: 'https://yeplayer.vercel.app' },

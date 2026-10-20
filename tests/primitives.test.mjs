@@ -31,5 +31,5 @@ test('app rail: compact 40 px tiles on desktop, current = fill only, apps never 
   assert.match(rule('.ye-rail'), /--ye-rail-tile: var\(--ye-ctl-h, var\(--ye-size-touch\)\)/)
   assert.match(rule('.ye-rail-item.is-current'), /background: var\(--ye-tone2\)/); assert.doesNotMatch(rule('.ye-rail-item.is-current'), /border/)
   const src = readFileSync(new URL('../packages/ui-react/src/apps.tsx', import.meta.url), 'utf8')
-  for (const m of src.matchAll(/url: ('[^']*'|null)/g)) assert.match(m[1], /^(null|'https:\/\/[a-z0-9-]+\.vercel\.app')$/)
+  for (const m of src.matchAll(/url: ('[^']*'|null)/g)) assert.match(m[1], /^(null|'https:\/\/[a-z0-9-]+\.(vercel\.app|yerik\.xyz)')$/)
 })

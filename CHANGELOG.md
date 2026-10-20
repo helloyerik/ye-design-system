@@ -1,5 +1,6 @@
 # Changelog
 ## Unreleased — 2026-10-20
+- `YE_APPS`: Yecalendar → https://calendar.yerik.xyz (primary host; shared Ye sign-in lives on *.yerik.xyz).
 - `AppRail` + `YE_APPS` + `YeMark` (`apps.tsx`, `.ye-rail*` in ui.css): desktop ye-apps switcher rail (Yandex 360 layout, monochrome). 40 px tiles via `--ye-ctl-h`, current app = `--ye-tone2` fill, CSS tooltip with the app name, disabled "Coming soon" tiles for apps with no public web URL (`url: null`), app-provided `bottom` slot (settings + avatar). `--ye-rail-head` aligns the mark with the app's top bar. Additive only: pixel-neutral for existing apps. First consumer: yecalendar.
 ## 2026-10-16
 - Font: Geist → platform system font. `--ye-font-family` is now the system-ui stack; removed `fonts/Geist-*` (woff2/ttf/OFL) and `fonts.css` @font-face. Kotlin `FONT_FAMILY = "sans-serif"`; Android apps use `FontFamily.Default` (no `res/font/geist.ttf`, no Gradle font copy). Type scale (4 styles) unchanged.
