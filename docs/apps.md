@@ -12,6 +12,7 @@ This is the one list of Ye apps, used by the desktop rail and the account page's
 | `yefocus` | Yefocus | https://yefocus.vercel.app |
 | `yeplayer` | Yeplayer | https://yeplayer.vercel.app |
 | `yeconvert` | YeConvert | https://convert.yerik.xyz |
+| `yejournal` | Yejournal | https://journal.yerik.xyz |
 | `yephotos` · `yereader` · `yetube` | Yephotos · Yereader · Yetube | `null` (shown as "Coming soon") |
 
 Rules:
