@@ -6,11 +6,11 @@
  * Mobile: do not render the rail (apps may list YE_APPS in their drawer instead).
  */
 import type { ComponentType, ReactNode } from 'react'
-import { IconCalendar, IconWallet, IconFocus2, IconMusic, IconPhoto, IconBook, IconMovie } from '@tabler/icons-react'
+import { IconCalendar, IconWallet, IconFocus2, IconMusic, IconPhoto, IconBook, IconMovie, IconTransform } from '@tabler/icons-react'
 import { ICON_STROKE } from './icons'
 
 type TablerLike = ComponentType<{ size?: number | string; stroke?: number | string; 'aria-hidden'?: boolean }>
-export type YeAppId = 'yecalendar' | 'yetracker' | 'yefocus' | 'yeplayer' | 'yephotos' | 'yereader' | 'yetube'
+export type YeAppId = 'yecalendar' | 'yetracker' | 'yefocus' | 'yeplayer' | 'yeconvert' | 'yephotos' | 'yereader' | 'yetube'
 export type YeApp = { id: YeAppId; name: string; icon: TablerLike; url: string | null }
 
 export const YE_APPS: readonly YeApp[] = [
@@ -18,6 +18,7 @@ export const YE_APPS: readonly YeApp[] = [
   { id: 'yetracker', name: 'Yetracker', icon: IconWallet, url: 'https://tracker.yerik.xyz' },
   { id: 'yefocus', name: 'Yefocus', icon: IconFocus2, url: 'https://yefocus.vercel.app' },
   { id: 'yeplayer', name: 'Yeplayer', icon: IconMusic, url: 'https://yeplayer.vercel.app' },
+  { id: 'yeconvert', name: 'YeConvert', icon: IconTransform, url: 'https://convert.yerik.xyz' },
   { id: 'yephotos', name: 'Yephotos', icon: IconPhoto, url: null },
   { id: 'yereader', name: 'Yereader', icon: IconBook, url: null },
   { id: 'yetube', name: 'Yetube', icon: IconMovie, url: null },
