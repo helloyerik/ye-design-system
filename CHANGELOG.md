@@ -1,7 +1,7 @@
 # Changelog
 ## Unreleased — 2026-10-21
 - `YE_APPS`: added Yejournal (https://journal.yerik.xyz, icon: `IconFlower`) — daily memory journal with pixel flowers.
-- `YE_APPS`: added YeConvert (https://convert.yerik.xyz, icon: `IconTransform`) — client-side image converter (PNG to WebP).
+- `YE_APPS`: added Yeconvert (https://convert.yerik.xyz, icon: `IconTransform`) — client-side image converter (PNG to WebP).
 ## Unreleased — 2026-10-20
 - `YE_APPS`: Yetracker → https://tracker.yerik.xyz (shared Ye sign-in; https://hexpo.vercel.app still works).
 - `YE_APPS`: Yecalendar → https://calendar.yerik.xyz (primary host; shared Ye sign-in lives on *.yerik.xyz).
