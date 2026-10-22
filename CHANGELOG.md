@@ -1,4 +1,9 @@
 # Changelog
+## Unreleased — 2026-10-22
+- `AppRail`: glyphs are solid `--ye-fg` (white on dark) in every state. Removed `--ye-dim` and the 0.45 opacity on "Coming soon" tiles, because translucent strokes overlapped visibly. State is a fill behind the tile only: hover `--ye-tone`, current `--ye-tone2`.
+- `AppRail`: one look in every app. The mark head is fixed at 52 px (`--ye-rail-head` is gone). The rail is `position: sticky; top: 0; height: 100dvh`, and ui.css hides it below 900 px.
+- New: `settings` and `account` props with a fixed bottom order (settings, account, legacy `bottom`). Also new: `RailButton` (rail tile button), `RailAvatar` (account tile), `RAIL_MEDIA` and `useRailVisible()`. `current` is now optional (`null` for account.yerik.xyz).
+- docs/apps.md: every ye-app must use the shared `AppRail` unmodified (no forks, no `.ye-rail*` overrides).
 ## Unreleased — 2026-10-21
 - `YE_APPS`: added Yejournal (https://journal.yerik.xyz, icon: `IconFlower`) — daily memory journal with pixel flowers.
 - `YE_APPS`: added Yeconvert (https://convert.yerik.xyz, icon: `IconTransform`) — client-side image converter (PNG to WebP).

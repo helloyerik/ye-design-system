@@ -117,17 +117,21 @@ select.ye-field { padding-right: calc(var(--ye-ctl-px) + 24px); background-image
 .ye-seg { display: flex; gap: 4px; padding: 4px; border-radius: var(--ye-radius-pill); background: var(--ye-seg-bg, var(--ye-tone)); }
 .ye-seg > button { flex: 1; min-width: 0; height: var(--ye-seg-item-h, max(36px, calc(var(--ye-ctl-h) - 8px))); border: 0; border-radius: var(--ye-radius-pill); background: transparent; color: inherit; font: inherit; font-weight: var(--ye-seg-weight, 500); }
 .ye-seg > button:is(.is-on, [aria-pressed='true'], [aria-selected='true']) { background: var(--ye-seg-on-bg, var(--ye-fg)); color: var(--ye-seg-on-fg, var(--ye-on-fg)); }
-/* App switcher rail (apps.tsx): desktop only; tile = compact control height (40 on fine pointer), column = tile + 2×8 */
-.ye-rail { --ye-rail-tile: var(--ye-ctl-h, var(--ye-size-touch)); width: calc(var(--ye-rail-tile) + 16px); flex: none; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0 0 12px; background: var(--ye-bg); }
-.ye-rail-mark { display: inline-flex; align-items: center; justify-content: center; height: var(--ye-rail-head, 64px); color: var(--ye-fg); flex: none; }
+/* App switcher rail (apps.tsx): desktop only (RAIL_MEDIA, hidden below 900 px); tile = compact control height (40 on fine pointer), column = tile + 2×8.
+   Same in every ye-app: apps must not restyle .ye-rail* (docs/apps.md). Glyphs are solid --ye-fg (no opacity, no tints); state = fill behind the tile only. */
+.ye-rail { --ye-rail-tile: var(--ye-ctl-h, var(--ye-size-touch)); width: calc(var(--ye-rail-tile) + 16px); flex: none; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0 0 12px; box-sizing: border-box; position: sticky; top: 0; height: 100dvh; background: var(--ye-bg); }
+.ye-rail-mark { display: inline-flex; align-items: center; justify-content: center; height: 52px; color: var(--ye-fg); flex: none; }
 .ye-rail-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
 .ye-rail-bottom { margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.ye-rail-item { position: relative; display: inline-flex; align-items: center; justify-content: center; width: var(--ye-rail-tile); height: var(--ye-rail-tile); border-radius: var(--ye-radius-r1); color: var(--ye-dim); text-decoration: none; }
-.ye-rail-item:hover { background: var(--ye-tone); color: var(--ye-fg); }
-.ye-rail-item.is-current { background: var(--ye-tone2); color: var(--ye-fg); }
+.ye-rail-item { position: relative; display: inline-flex; align-items: center; justify-content: center; width: var(--ye-rail-tile); height: var(--ye-rail-tile); padding: 0; border: 0; border-radius: var(--ye-radius-r1); background: none; color: var(--ye-fg); font: inherit; text-decoration: none; cursor: pointer; }
+.ye-rail-item > svg { color: var(--ye-fg); opacity: 1; }
+.ye-rail-item:hover { background: var(--ye-tone); }
+.ye-rail-item.is-current { background: var(--ye-tone2); }
 .ye-rail-item.is-disabled { cursor: default; }
-.ye-rail-item.is-disabled > svg { opacity: .45; }
-.ye-rail-item.is-disabled:hover { background: none; color: var(--ye-dim); }
+.ye-rail-item.is-disabled:hover { background: none; }
 .ye-rail-item:focus-visible { outline: 2px solid var(--ye-fg); outline-offset: 2px; }
+.ye-rail-avatar-dot { width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--ye-tone2); color: var(--ye-fg); font-size: var(--ye-type-body-size); line-height: 1; font-weight: 600; }
+.ye-rail-avatar.is-in .ye-rail-avatar-dot { background: var(--ye-fg); color: var(--ye-bg); }
+@media (max-width: 899.98px) { .ye-rail { display: none; } }
 .ye-rail-item[data-tip]::after { content: attr(data-tip); position: absolute; left: calc(100% + 8px); top: 50%; transform: translateY(-50%); z-index: 30; padding: 4px 8px; border-radius: var(--ye-radius-r1); background: var(--ye-toast-bg); color: var(--ye-toast-fg); font-size: var(--ye-type-muted-size); line-height: var(--ye-type-muted-line); white-space: nowrap; pointer-events: none; opacity: 0; visibility: hidden; transition: opacity var(--ye-dur-tooltip) ease-out; }
 .ye-rail-item[data-tip]:hover::after, .ye-rail-item[data-tip]:focus-visible::after { opacity: 1; visibility: visible; }

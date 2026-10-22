@@ -33,3 +33,16 @@ test('app rail: compact 40 px tiles on desktop, current = fill only, apps never 
   const src = readFileSync(new URL('../packages/ui-react/src/apps.tsx', import.meta.url), 'utf8')
   for (const m of src.matchAll(/url: ('[^']*'|null)/g)) assert.match(m[1], /^(null|'https:\/\/[a-z0-9-]+\.(vercel\.app|yerik\.xyz)')$/)
 })
+test('app rail: solid --ye-fg glyphs (no opacity/tint), state = fill only, one breakpoint, fixed bottom order', () => {
+  const railRules = [...css.matchAll(/^(\.ye-rail[^{]*)\{([^}]*)\}/gm)].filter((m) => !m[1].includes('::after') && !m[1].includes(':hover::'))
+  for (const [, sel, body] of railRules) {
+    assert.doesNotMatch(body, /opacity: (?!1;)/, sel)
+    assert.doesNotMatch(body, /color: var\(--ye-dim\)/, sel)
+  }
+  assert.match(rule('.ye-rail-item'), /color: var\(--ye-fg\)/)
+  assert.doesNotMatch(rule('.ye-rail-item:hover'), /border|outline/)
+  assert.match(css, /@media \(max-width: 899\.98px\) \{ \.ye-rail \{ display: none; \} \}/)
+  const src = readFileSync(new URL('../packages/ui-react/src/apps.tsx', import.meta.url), 'utf8')
+  assert.match(src, /RAIL_MEDIA = '\(min-width: 900px\)'/)
+  assert.match(src, /\{settings && <RailButton[\s\S]*\{account\}[\s\S]*\{bottom\}/)
+})
