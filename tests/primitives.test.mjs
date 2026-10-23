@@ -33,6 +33,10 @@ test('app rail: compact 40 px tiles on desktop, current = fill only, apps never 
   const src = readFileSync(new URL('../packages/ui-react/src/apps.tsx', import.meta.url), 'utf8')
   for (const m of src.matchAll(/url: ('[^']*'|null)/g)) assert.match(m[1], /^(null|'https:\/\/[a-z0-9-]+\.(vercel\.app|yerik\.xyz)')$/)
 })
+test('app rail: tooltips clear later app columns (rail z-index above content, below scrim)', () => {
+  assert.match(rule('.ye-rail'), /position: sticky; top: 0; z-index: 20;/)
+  assert.match(rule('.ye-scrim'), /z-index: 50/)
+})
 test('app rail: solid --ye-fg glyphs (no opacity/tint), state = fill only, one breakpoint, fixed bottom order', () => {
   const railRules = [...css.matchAll(/^(\.ye-rail[^{]*)\{([^}]*)\}/gm)].filter((m) => !m[1].includes('::after') && !m[1].includes(':hover::'))
   for (const [, sel, body] of railRules) {

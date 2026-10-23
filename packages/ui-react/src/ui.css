@@ -118,8 +118,9 @@ select.ye-field { padding-right: calc(var(--ye-ctl-px) + 24px); background-image
 .ye-seg > button { flex: 1; min-width: 0; height: var(--ye-seg-item-h, max(36px, calc(var(--ye-ctl-h) - 8px))); border: 0; border-radius: var(--ye-radius-pill); background: transparent; color: inherit; font: inherit; font-weight: var(--ye-seg-weight, 500); }
 .ye-seg > button:is(.is-on, [aria-pressed='true'], [aria-selected='true']) { background: var(--ye-seg-on-bg, var(--ye-fg)); color: var(--ye-seg-on-fg, var(--ye-on-fg)); }
 /* App switcher rail (apps.tsx): desktop only (RAIL_MEDIA, hidden below 900 px); tile = compact control height (40 on fine pointer), column = tile + 2×8.
-   Same in every ye-app: apps must not restyle .ye-rail* (docs/apps.md). Glyphs are solid --ye-fg (no opacity, no tints); state = fill behind the tile only. */
-.ye-rail { --ye-rail-tile: var(--ye-ctl-h, var(--ye-size-touch)); width: calc(var(--ye-rail-tile) + 16px); flex: none; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0 0 12px; box-sizing: border-box; position: sticky; top: 0; height: 100dvh; background: var(--ye-bg); }
+   Same in every ye-app: apps must not restyle .ye-rail* (docs/apps.md). z-index 20: the sticky rail is its own stacking context, so it must sit above
+   later app columns (sidebar, panels) or its ::after tooltips paint under them; it stays below .ye-scrim (50) and .ye-toasts (60). Glyphs are solid --ye-fg (no opacity, no tints); state = fill behind the tile only. */
+.ye-rail { --ye-rail-tile: var(--ye-ctl-h, var(--ye-size-touch)); width: calc(var(--ye-rail-tile) + 16px); flex: none; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0 0 12px; box-sizing: border-box; position: sticky; top: 0; z-index: 20; height: 100dvh; background: var(--ye-bg); }
 .ye-rail-mark { display: inline-flex; align-items: center; justify-content: center; height: 52px; color: var(--ye-fg); flex: none; }
 .ye-rail-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
 .ye-rail-bottom { margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 4px; }

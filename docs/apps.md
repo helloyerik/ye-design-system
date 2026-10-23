@@ -30,10 +30,10 @@ const desktop = useRailVisible()   // RAIL_MEDIA = '(min-width: 900px)'
 ```
 
 ### Rule: one rail, unmodified, in every app
-Every ye-app with a desktop layout (yecalendar, yetracker, yeconvert, yejournal, and account.yerik.xyz with `current={null}`) renders this `AppRail` from the submodule **as is**:
+Every ye-app with a desktop layout (yecalendar, yetracker, yefocus, yeplayer, yeconvert, yejournal, and account.yerik.xyz with `current={null}`) renders this `AppRail` from the submodule **as is**:
 - No forked or hand-built rail, and no app CSS that targets `.ye-rail*` (no width, colour, `--ye-rail-*` or position overrides). Do not pass `className` to restyle it.
 - Show it with `useRailVisible()` only (one breakpoint, `RAIL_MEDIA`, 900 px). Below that, render no rail; the app's drawer or tab bar takes over. ui.css also hides `.ye-rail` below 900 px.
-- The rail is the first child of the app's top-level row. It is `position: sticky; top: 0; height: 100dvh`, so the app should not size it.
+- The rail is the first child of the app's top-level row. It is `position: sticky; top: 0; z-index: 20; height: 100dvh`, so the app should not size it or wrap it to lift its tooltips (the rail sits above app columns and below `.ye-scrim`).
 - The bottom order is fixed: `settings` (a gear tile), then `account` (a menu whose trigger is `<RailAvatar>`), then the legacy `bottom` slot. Use `RailButton` for anything else at the bottom. Never use a bare `IconBtn` there.
 - App-specific section navigation (for example Yetracker's Overview / Operations / …) is a separate column to the right of the rail. It is not part of the rail.
 - If an app needs something the rail does not offer, add it here (a prop or slot) and bump every consumer. Do not fork it.
