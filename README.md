@@ -13,7 +13,7 @@ Not related to the public GitHub repo `helloyerik/yedesign-system` (Vue, March 2
 | `android/webview-template` | WebView wrapper (insets, theme, back, file upload, server URL setup, shared signing) |
 | `android/compose` | Compose: generated `YeTokens.kt` now; `ye-compose-ui` module next (from yereader `:core:ui`) |
 | `scripts/` | `safe-install.sh`, `sign-apk.sh`, `create-shared-key.sh`, `migrate-to-shared-key.sh` (prepared, not run), `new-webview-app.sh`, `shotdiff.py` |
-| `docs/` | DECISIONS (system font, Tabler, springs), apps (AppRail, YE_APPS), signing, selfhost (ThinkPad T470), i18n, adopting |
+| `docs/` | DECISIONS (system font, Tabler, springs), apps (AppRail, YE_APPS), [DOMAINS](docs/DOMAINS.md) (app addresses, DNS, redirect runbook), signing, selfhost (ThinkPad T470), i18n, adopting |
 
 ```bash
 npm ci && npm run tokens   # regenerate build/ (committed; consumers need no npm)

@@ -8,9 +8,9 @@ This is the one list of Ye apps, used by the desktop rail and the account page's
 | id | name | url |
 |---|---|---|
 | `yecalendar` | Yecalendar | https://calendar.yerik.xyz |
-| `yetracker` | Yetracker | https://tracker.yerik.xyz (old host https://hexpo.vercel.app still works) |
-| `yefocus` | Yefocus | https://yefocus.vercel.app |
-| `yeplayer` | Yeplayer | https://yeplayer.vercel.app |
+| `yetracker` | Yetracker | https://tracker.yerik.xyz (https://hexpo.vercel.app redirects here) |
+| `yefocus` | Yefocus | https://focus.yerik.xyz |
+| `yeplayer` | Yeplayer | https://player.yerik.xyz |
 | `yeconvert` | Yeconvert | https://convert.yerik.xyz |
 | `yejournal` | Yejournal | https://journal.yerik.xyz |
 | `yephotos` · `yereader` · `yetube` | Yephotos · Yereader · Yetube | `null` (shown as "Coming soon") |
@@ -18,6 +18,7 @@ This is the one list of Ye apps, used by the desktop rail and the account page's
 Rules:
 - Use only verified production URLs: `<app>.yerik.xyz` when it exists, otherwise the Vercel URL. **Never invent one.** Keep `url: null` until the app is deployed.
 - When an app moves to `<app>.yerik.xyz`, update its row and the CHANGELOG, then bump the submodule in each consumer.
+- Domains, DNS, redirects and the runbook for moving a host: [DOMAINS.md](DOMAINS.md).
 
 ## `AppRail`
 ```tsx

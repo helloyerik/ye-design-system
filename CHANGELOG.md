@@ -1,4 +1,7 @@
 # Changelog
+## Unreleased — 2026-10-23
+- `YE_APPS`: Yefocus → https://focus.yerik.xyz, Yeplayer → https://player.yerik.xyz. Every deployed app now links to its `*.yerik.xyz` address.
+- New `docs/DOMAINS.md`: domain registry (incl. reserved tube.yerik.xyz and reader.yerik.xyz), DNS setup (Cloudflare, DNS-only CNAME to Vercel; registrar Porkbun), and runbook for adding, renaming, moving, redirecting, and rolling back a host.
 ## Unreleased — 2026-10-22
 - `AppRail`: glyphs are solid `--ye-fg` (white on dark) in every state. Removed `--ye-dim` and the 0.45 opacity on "Coming soon" tiles, because translucent strokes overlapped visibly. State is a fill behind the tile only: hover `--ye-tone`, current `--ye-tone2`.
 - `AppRail`: one look in every app. The mark head is fixed at 52 px (`--ye-rail-head` is gone). The rail is `position: sticky; top: 0; height: 100dvh`, and ui.css hides it below 900 px.

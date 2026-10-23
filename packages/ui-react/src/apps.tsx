@@ -18,8 +18,8 @@ export type YeApp = { id: YeAppId; name: string; icon: TablerLike; url: string |
 export const YE_APPS: readonly YeApp[] = [
   { id: 'yecalendar', name: 'Yecalendar', icon: IconCalendar, url: 'https://calendar.yerik.xyz' },
   { id: 'yetracker', name: 'Yetracker', icon: IconWallet, url: 'https://tracker.yerik.xyz' },
-  { id: 'yefocus', name: 'Yefocus', icon: IconFocus2, url: 'https://yefocus.vercel.app' },
-  { id: 'yeplayer', name: 'Yeplayer', icon: IconMusic, url: 'https://yeplayer.vercel.app' },
+  { id: 'yefocus', name: 'Yefocus', icon: IconFocus2, url: 'https://focus.yerik.xyz' },
+  { id: 'yeplayer', name: 'Yeplayer', icon: IconMusic, url: 'https://player.yerik.xyz' },
   { id: 'yeconvert', name: 'Yeconvert', icon: IconTransform, url: 'https://convert.yerik.xyz' },
   { id: 'yejournal', name: 'Yejournal', icon: IconFlower, url: 'https://journal.yerik.xyz' },
   { id: 'yephotos', name: 'Yephotos', icon: IconPhoto, url: null },
