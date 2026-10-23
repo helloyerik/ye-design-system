@@ -1,5 +1,6 @@
 # Changelog
 ## Unreleased — 2026-10-23
+- `AppRail`: rail tooltips no longer paint under the app's sidebar or panels. `.ye-rail` (sticky, so its own stacking context) now has `z-index: 20`: above app content and `.ye-topbar` (5), below `.ye-scrim` (50) and `.ye-toasts` (60). Apps can drop local wrappers such as Yecalendar's `.yc-rail-slot`. Pixel-neutral at rest; only the hover/focus tooltip changes (it is now on top).
 - `YE_APPS`: Yefocus → https://focus.yerik.xyz, Yeplayer → https://player.yerik.xyz. Every deployed app now links to its `*.yerik.xyz` address.
 - New `docs/DOMAINS.md`: domain registry (incl. reserved tube.yerik.xyz and reader.yerik.xyz), DNS setup (Cloudflare, DNS-only CNAME to Vercel; registrar Porkbun), and runbook for adding, renaming, moving, redirecting, and rolling back a host.
 ## Unreleased — 2026-10-22
