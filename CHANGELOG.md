@@ -1,4 +1,6 @@
 # Changelog
+## Unreleased — 2026-11-04
+- `YE_APPS`: added Yeboard (https://board.yerik.xyz, icon: `IconLayoutCollage`) — local-only desktop reference boards. Place it after Yejournal, before the coming-soon apps.
 ## Unreleased — 2026-10-23
 - `AppRail`: rail tooltips no longer paint under the app's sidebar or panels. `.ye-rail` (sticky, so its own stacking context) now has `z-index: 20`: above app content and `.ye-topbar` (5), below `.ye-scrim` (50) and `.ye-toasts` (60). Apps can drop local wrappers such as Yecalendar's `.yc-rail-slot`. Pixel-neutral at rest; only the hover/focus tooltip changes (it is now on top).
 - `YE_APPS`: Yefocus → https://focus.yerik.xyz, Yeplayer → https://player.yerik.xyz. Every deployed app now links to its `*.yerik.xyz` address.

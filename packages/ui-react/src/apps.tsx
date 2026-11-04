@@ -8,11 +8,11 @@
  * Icons are solid `--ye-fg` (white on dark), never translucent; state is shown with a fill behind the tile only.
  */
 import { useSyncExternalStore, type ComponentType, type ReactNode } from 'react'
-import { IconCalendar, IconWallet, IconFocus2, IconMusic, IconPhoto, IconBook, IconMovie, IconTransform, IconFlower, IconSettings, IconUser } from '@tabler/icons-react'
+import { IconCalendar, IconWallet, IconFocus2, IconMusic, IconPhoto, IconBook, IconMovie, IconTransform, IconFlower, IconLayoutCollage, IconSettings, IconUser } from '@tabler/icons-react'
 import { ICON_STROKE } from './icons'
 
 type TablerLike = ComponentType<{ size?: number | string; stroke?: number | string; 'aria-hidden'?: boolean }>
-export type YeAppId = 'yecalendar' | 'yetracker' | 'yefocus' | 'yeplayer' | 'yeconvert' | 'yejournal' | 'yephotos' | 'yereader' | 'yetube'
+export type YeAppId = 'yecalendar' | 'yetracker' | 'yefocus' | 'yeplayer' | 'yeconvert' | 'yejournal' | 'yeboard' | 'yephotos' | 'yereader' | 'yetube'
 export type YeApp = { id: YeAppId; name: string; icon: TablerLike; url: string | null }
 
 export const YE_APPS: readonly YeApp[] = [
@@ -22,6 +22,7 @@ export const YE_APPS: readonly YeApp[] = [
   { id: 'yeplayer', name: 'Yeplayer', icon: IconMusic, url: 'https://player.yerik.xyz' },
   { id: 'yeconvert', name: 'Yeconvert', icon: IconTransform, url: 'https://convert.yerik.xyz' },
   { id: 'yejournal', name: 'Yejournal', icon: IconFlower, url: 'https://journal.yerik.xyz' },
+  { id: 'yeboard', name: 'Yeboard', icon: IconLayoutCollage, url: 'https://board.yerik.xyz' },
   { id: 'yephotos', name: 'Yephotos', icon: IconPhoto, url: null },
   { id: 'yereader', name: 'Yereader', icon: IconBook, url: null },
   { id: 'yetube', name: 'Yetube', icon: IconMovie, url: null },

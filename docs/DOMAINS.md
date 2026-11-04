@@ -3,7 +3,7 @@
 The one registry of public addresses for Ye apps, and the runbook for changing them. Every app README links here.
 Update this file in the same change as any domain move (see "Update this doc" in the runbook).
 
-Last checked: 23 Oct 2026 (Asia/Almaty).
+Last checked: 4 Nov 2026 (Asia/Almaty).
 
 ## Registry
 
@@ -16,6 +16,7 @@ Last checked: 23 Oct 2026 (Asia/Almaty).
 | Yetracker | https://tracker.yerik.xyz | `yetracker` | helloyerik/yetracker (production branch `feat/chart-modes`) | hexpo.vercel.app | 308 → tracker.yerik.xyz (Vercel domain redirect, whole host) |
 | Yefocus | https://focus.yerik.xyz | `yefocus` | helloyerik/yefocus | yefocus.vercel.app | **Serves the app, no redirect yet.** A browser-only redirect is in `vercel.json` (yefocus PR "Domain: focus.yerik.xyz"). It applies after that PR is merged and deployed. The API, OTA and the Mac companion keep using the old host |
 | Yeplayer | https://player.yerik.xyz | `yeplayer` | helloyerik/yeplayer | yeplayer.vercel.app | 308 → player.yerik.xyz (set up separately in the yeplayer project) |
+| Yeboard | https://board.yerik.xyz | `yeboard` | helloyerik/yeboard | — | Live on Vercel at board.yerik.xyz (local-only storage, no shared sign-in yet) |
 | Portfolio | https://yerik.xyz | `portfolio` | — | — | apex, leave as is |
 | Yetube | tube.yerik.xyz | — | helloyerik/yetube | — | **Reserved.** No DNS record, no Vercel domain yet |
 | Yereader | reader.yerik.xyz | — | helloyerik/yereader | — | **Reserved.** No DNS record, no Vercel domain yet |
