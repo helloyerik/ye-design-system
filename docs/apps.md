@@ -13,6 +13,7 @@ This is the one list of Ye apps, used by the desktop rail and the account page's
 | `yeplayer` | Yeplayer | https://player.yerik.xyz |
 | `yeconvert` | Yeconvert | https://convert.yerik.xyz |
 | `yejournal` | Yejournal | https://journal.yerik.xyz |
+| `yeboard` | Yeboard | https://board.yerik.xyz |
 | `yephotos` · `yereader` · `yetube` | Yephotos · Yereader · Yetube | `null` (shown as "Coming soon") |
 
 Rules:
@@ -30,7 +31,7 @@ const desktop = useRailVisible()   // RAIL_MEDIA = '(min-width: 900px)'
 ```
 
 ### Rule: one rail, unmodified, in every app
-Every ye-app with a desktop layout (yecalendar, yetracker, yefocus, yeplayer, yeconvert, yejournal, and account.yerik.xyz with `current={null}`) renders this `AppRail` from the submodule **as is**:
+Every ye-app with a desktop layout (yecalendar, yetracker, yefocus, yeplayer, yeconvert, yejournal, yeboard, and account.yerik.xyz with `current={null}`) renders this `AppRail` from the submodule **as is**:
 - No forked or hand-built rail, and no app CSS that targets `.ye-rail*` (no width, colour, `--ye-rail-*` or position overrides). Do not pass `className` to restyle it.
 - Show it with `useRailVisible()` only (one breakpoint, `RAIL_MEDIA`, 900 px). Below that, render no rail; the app's drawer or tab bar takes over. ui.css also hides `.ye-rail` below 900 px.
 - The rail is the first child of the app's top-level row. It is `position: sticky; top: 0; z-index: 20; height: 100dvh`, so the app should not size it or wrap it to lift its tooltips (the rail sits above app columns and below `.ye-scrim`).
